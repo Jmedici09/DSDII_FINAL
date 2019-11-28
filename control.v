@@ -19,12 +19,11 @@ module controler
 	input clk, reset,
 	input start,
 	// 	Status signals
-	input 
+	input cnt_is_0, divisor_is_0, dvsr_less_than_dvnd, shifted_divisor_MSB,
 	//Outputs
-	output reg ,
+	output reg error, done,
 	//	Control signals
-	output reg Error, Done,
-	
+	output reg init, left, right, sub
 );
 
 localparam [`SWIDTH-1:0] 
@@ -39,68 +38,75 @@ reg [`SWIDTH-1:0] state, next_state;
 	//state register
 	always @( posedge clk )
 		if ( reset == 1'b1 )
-			state <= A_PRIORITY;
+			state <= WAIT_FOR_START;
 		else
 			state <= next_state;
 			
 	//next state logic
 	always @(*)
 		casex( state )
-			A_PRIORITY: 
-				if( ra == 1'b1 )
-					next_state = A_HOLD;
-				else if( (~ra & rb) == 1'b1 )
-					next_state = B_USING;
+			WAIT_FOR_START: 
+				if( start == 1'b1 )
+				begin
+					next_state = CHECK_DIVIDE_BY_ZERO;
+					init = 1'b1; // make sure this is how signals are done for mealy
+				end
 				else
-					next_state = A_PRIORITY; // next_state = state;
+					next_state = WAIT_FOR_START;
 					
-			A_HOLD:
-				if( (~ra & rb) == 1'b1 )
-					next_state = B_HOLD;
-				else if( (~ra & ~rb) == 1'b1 )
-					next_state = B_PRIORITY;
+			CHECK_DIVIDE_BY_ZERO:
+				if( divisor_is_0 == 1'b0 )
+					next_state = SHIFT_LEFT;
 				else
-					next_state = A_HOLD; // next_state = state;
+					next_state = ERROR; 
 					
-			B_USING:
-
-				if( ra == 1'b1 )
-					next_state = A_HOLD;
-				else if( (~ra & ~rb) == 1'b1 )
-					next_state = A_PRIORITY;
-				else
-					next_state = B_USING; // next_state = state;
+			ERROR:
+				next_state = WAIT_FOR_START; 
 			
-			B_PRIORITY:
-				if( rb == 1'b1 )
-					next_state = B_HOLD;
-				else if( (ra & ~rb) == 1'b1 )
-					next_state = A_USING;
+			SHIFT_LEFT:
+				if( shifted_divisor_MSB == 1'b1 )
+					next_state = SHIFT_RIGHT;
 				else
-					next_state = B_PRIORITY; // next_state = state;
+				begin
+					next_state = SHIFT_LEFT;
+					left = 1'b1;
+				end
 								
-			B_HOLD:
-				if( (~ra & ~rb) == 1'b1 )
-					next_state = A_PRIORITY;
-				else if( (ra & ~rb) == 1'b1 )
-					next_state = A_HOLD;
+			SHIFT_RIGHT: // this could be rearanged
+				if( cnt_is_0 == 1'b1 )
+					next_state = NO_ERROR;
+				else if( dvsr_less_than_dvnd == 1'b1 )
+				begin
+					next_state = SHIFT_RIGHT;
+					sub = 1'b1;
+					right = 1'b1;
+				end
 				else
-					next_state = B_HOLD; // next_state = state;
+				begin
+					next_state = SHIFT_RIGHT;
+					right = 1'b1;
+				end
+				
+				/* else
+				begin
+					next_state = SHIFT_RIGHT;
+					right = 1'b1;
+					if( dvsr_less_than_dvnd == 1'b1 )
+						sub = 1'b1;
+					else
+						sub = 1'b0;
+				end */
 			
-			A_USING:
-				if( (~ra & ~rb) == 1'b1 )
-					next_state = B_PRIORITY;
-				else if( rb == 1'b1 )
-					next_state = B_HOLD;
-				else
-					next_state = A_USING; // next_state = state;
+			NO_ERROR:
+				next_state = WAIT_FOR_START; 
+				
 			default: next_state = {`SWIDTH{1'bx}};
 		endcase
 	//output logic
 	always @(*)
 	begin
-		Ga = (state == A_HOLD || state == A_USING) ?  1'b1 : 1'b0;
-		Gb = (state == B_USING || state == B_HOLD) ?  1'b1 : 1'b0;
+		error = (state == ERROR) ?  1'b1 : 1'b0;
+		done = (state == NO_ERROR) ?  1'b1 : 1'b0;
 	end
 
 endmodule
