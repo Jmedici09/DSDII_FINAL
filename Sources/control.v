@@ -14,8 +14,8 @@
 
 `define SWIDTH 3
 module controler
-# (parameter SIZE )
-(	//Inputs
+	# (parameter SIZE )
+	(	//Inputs
 	input clk, reset,
 	input start,
 	// 	Status signals
@@ -24,7 +24,7 @@ module controler
 	output reg error, done,
 	//	Control signals
 	output reg init, left, right, sub
-);
+	);
 
 localparam [`SWIDTH-1:0] 
 	WAIT_FOR_START = 0,
