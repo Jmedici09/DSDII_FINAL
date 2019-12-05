@@ -9,22 +9,34 @@
 //				It uses the standard form recommended by in lecture 20
 //////////////////////////////////////////////////////////////////////////////////
 
-`define NUM_TEST_VECTORS 23
+`define NUM_TEST_VECTORS 13
 `define DEBUG 1
 `define MOORE 0
 
-module arbiter2_tb();
+module control_tb();
 	
 	//array  to hold fsm I/O pairs
-	reg [2:0] fsm_inputs [`NUM_TEST_VECTORS-1:0];
-	reg	[1:0] fsm_outputs [`NUM_TEST_VECTORS-1:0];
+	reg [5:0] fsm_inputs [`NUM_TEST_VECTORS-1:0];
+	reg	[5:0] fsm_outputs [`NUM_TEST_VECTORS-1:0];
 	// add a reg that checks the current state
+
 	
+	reg start_iv, cnt_is_0_iv, divisor_is_0_iv, dvsr_less_than_dvnd_iv, shifted_divisor_MSB_iv, reset_iv, clk;
+	wire error_ov, done_ov, init_ov, left_ov, right_ov, sub_ov;
 	
-	reg ra_iv, rb_iv, reset_iv, clk;
-	wire Ga_ov, Gb_ov;
-	
-	arbiter2 DUT ( .ra(ra_iv), .rb(rb_iv), .reset(reset_iv), .Ga(Ga_ov), .Gb(Gb_ov), .clk(clk));
+	control DUT (	.start(start_iv),
+					.cnt_is_0(cnt_is_0_iv),
+					.divisor_is_0(divisor_is_0_iv),
+					.dvsr_less_than_dvnd(dvsr_less_than_dvnd_iv),
+					.shifted_divisor_MSB(shifted_divisor_MSB_iv),
+					.reset(reset_iv),
+					.clk(clk),
+					.error(error_ov),
+					.done(done_ov),
+					.init(init_ov),
+					.left(left_ov),
+					.right(right_ov),
+					.sub(sub_ov));
 	
 	//process for 20 ns clk
 	initial begin	
@@ -40,34 +52,28 @@ module arbiter2_tb();
 		// no homing sequence 
 	
 		//reset
-		fsm_inputs[0]=3'b1_00; fsm_outputs[0]=2'b00; // A Priority
+		fsm_inputs[0]=6'b1_00000; fsm_outputs[0]=6'b000000; // WAIT_FOR_START
 		
-		//test           r ab                    ab
-		fsm_inputs[1]=3'b0_00; fsm_outputs[1]=2'b00; // A Priority
-		fsm_inputs[2]=3'b0_01; fsm_outputs[2]=2'b01; // B Using
-		fsm_inputs[3]=3'b0_01; fsm_outputs[3]=2'b01; // B Using
-		fsm_inputs[4]=3'b0_00; fsm_outputs[4]=2'b00; // A Priority
-		fsm_inputs[5]=3'b0_01; fsm_outputs[5]=2'b01; // B Using
-		fsm_inputs[6]=3'b0_10; fsm_outputs[6]=2'b10; // A Hold
-		fsm_inputs[7]=3'b0_10; fsm_outputs[7]=2'b10; // A Hold
-		fsm_inputs[8]=3'b0_01; fsm_outputs[8]=2'b01; // B Hold
-		fsm_inputs[9]=3'b0_10; fsm_outputs[9]=2'b10; // A Hold
-		fsm_inputs[10]=3'b0_00; fsm_outputs[10]=2'b00; // B Priority
-		fsm_inputs[11]=3'b0_00; fsm_outputs[11]=2'b00; // B Priority
-		fsm_inputs[12]=3'b0_10; fsm_outputs[12]=2'b10; // A Using
-		fsm_inputs[13]=3'b0_10; fsm_outputs[13]=2'b10; // A Using
-		fsm_inputs[14]=3'b0_00; fsm_outputs[14]=2'b00; // B Priority
-		fsm_inputs[15]=3'b0_10; fsm_outputs[15]=2'b10; // A Using
-		fsm_inputs[16]=3'b0_01; fsm_outputs[16]=2'b01; // B Hold
-		fsm_inputs[17]=3'b0_01; fsm_outputs[17]=2'b01; // B Hold
-		fsm_inputs[18]=3'b0_00; fsm_outputs[18]=2'b00; // A Priority
-		fsm_inputs[19]=3'b0_10; fsm_outputs[19]=2'b10; // A Hold
-		fsm_inputs[20]=3'b0_00; fsm_outputs[20]=2'b00; // B Priority
-		fsm_inputs[21]=3'b0_01; fsm_outputs[21]=2'b01; // B Hold
+		// r=reset, s=start, c=cnt_is_0, 0=divisor_is_0, <=dvsr_less_than_dvnd, m=shifted_divisor_MSB
+		// e=error, d=done, i=init, l=left, r=right, s=sub
+		//test            r sc0<m                     ed ilrs
+		fsm_inputs[1] =6'b0_01010; fsm_outputs[1] =6'b00_0000; // WAIT_FOR_START
+		fsm_inputs[2] =6'b0_11011; fsm_outputs[2] =6'b00_0000; // CHECK_DIVIDE_BY_ZERO
+		fsm_inputs[3] =6'b0_01111; fsm_outputs[3] =6'b11_0000; // ERROR
+		fsm_inputs[4] =6'b0_00010; fsm_outputs[4] =6'b00_0000; // WAIT_FOR_START
+		fsm_inputs[5] =6'b0_10101; fsm_outputs[5] =6'b00_0000; // CHECK_DIVIDE_BY_ZERO
+		fsm_inputs[6] =6'b0_10001; fsm_outputs[6] =6'b00_0000; // SHIFT_LEFT
+		fsm_inputs[7] =6'b0_10100; fsm_outputs[7] =6'b00_0100; // SHIFT_LEFT
+		fsm_inputs[8] =6'b0_01111; fsm_outputs[8] =6'b00_0000; // SHIFT_RIGHT
+		fsm_inputs[9] =6'b0_10101; fsm_outputs[9] =6'b00_0010; // SHIFT_RIGHT
+		fsm_inputs[10]=6'b0_00111; fsm_outputs[10]=6'b00_0011; // SHIFT_RIGHT
+		fsm_inputs[11]=6'b0_01011; fsm_outputs[11]=6'b01_0000; // NO_ERROR
+		fsm_inputs[12]=6'b0_00010; fsm_outputs[12]=6'b00_0000; // WAIT_FOR_START
+
 		
 		//reset
-		fsm_inputs[22]=3'b1_00; fsm_outputs[22]=2'b00; // A Priority
-		
+	//	fsm_inputs[22]=3'b1_00; fsm_outputs[22]=2'b00; // A Priority
+
 	end
 	
 	//main testbench
@@ -79,26 +85,30 @@ module arbiter2_tb();
 		passed=1;
 		
 		if(`DEBUG)
-			$display("reset ra rb Ga Ga_ex Gb Gb_ex");
+			$display("reset start cnt=0 div=0 divisor<dividend div[MSB] | error done init left right sub (expected output)");
 		
 		repeat(`NUM_TEST_VECTORS) begin
-			reset_iv=fsm_inputs[i][2];
-			ra_iv=fsm_inputs[i][1];
-			rb_iv=fsm_inputs[i][0];
-			if(`MOORE)
-				@( posedge clk);
+			reset_iv=fsm_inputs[i][5];
+			start_iv=fsm_inputs[i][4];
+			cnt_is_0_iv=fsm_inputs[i][3];
+			divisor_is_0_iv=fsm_inputs[i][2];
+			dvsr_less_than_dvnd_iv=fsm_inputs[i][1];
+			shifted_divisor_MSB_iv=fsm_inputs[i][0];
+			
+			@(posedge clk);
 			#1
 			if(`DEBUG)
-				$display("%5b %2b %2b %2b (%3b) %2b (%3b)", reset_iv, ra_iv, rb_iv, Ga_ov, fsm_outputs[i][1], Gb_ov, fsm_outputs[i][0]);
+				$display("%5b %5b %5b %5b %15b %8b | %5b %4b %4b %4b %5b %3b (%b)", reset_iv, start_iv, cnt_is_0_iv, divisor_is_0_iv, dvsr_less_than_dvnd_iv, shifted_divisor_MSB_iv,
+						error_ov, done_ov, init_ov, left_ov, right_ov, sub_ov, fsm_outputs[i]);
 			// Ignore outputs that are X
-			if( (fsm_outputs[i][1] !== 1'bx && Ga_ov !== fsm_outputs[i][1]) || (fsm_outputs[i][0] !== 1'bx && Gb_ov !== fsm_outputs[i][0]))begin	
-				$display( "Fail" );
-				$finish();
-			end
+//			if( (fsm_outputs[i][1] !== 1'bx && Ga_ov !== fsm_outputs[i][1]) || (fsm_outputs[i][0] !== 1'bx && Gb_ov !== fsm_outputs[i][0]))begin	
+	//			$display( "Fail" );
+		//		$finish();
+		//	end
 			
 			i=i+1;
 		end
-		if( passed ) $display ("Pass");
+		if( passed == 1 ) $display ("Pass");
 		$finish();
 	end
 

@@ -13,8 +13,8 @@
 
 
 `define SWIDTH 3
-module controler
-	# (parameter SIZE )
+module control
+	#(parameter SIZE=8)
 	(	//Inputs
 	input clk, reset,
 	input start,
@@ -44,6 +44,12 @@ reg [`SWIDTH-1:0] state, next_state;
 			
 	//next state logic
 	always @(*)
+	begin
+		init = 1'b0;
+		left = 1'b0;
+		right = 1'b0;
+		sub = 1'b0;
+		
 		casex( state )
 			WAIT_FOR_START: 
 				if( start == 1'b1 )
@@ -102,11 +108,12 @@ reg [`SWIDTH-1:0] state, next_state;
 				
 			default: next_state = {`SWIDTH{1'bx}};
 		endcase
+	end
 	//output logic
 	always @(*)
 	begin
 		error = (state == ERROR) ?  1'b1 : 1'b0;
-		done = (state == NO_ERROR) ?  1'b1 : 1'b0;
+		done = (state == NO_ERROR || state == ERROR) ?  1'b1 : 1'b0;
 	end
 
 endmodule
