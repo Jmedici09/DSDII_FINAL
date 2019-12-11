@@ -16,29 +16,27 @@ module datapath
 	input clk, reset,
 	input [SIZE - 1:0] divisor, dividend,
 	//	Control signals
-	input init, left, right, sub
+	input init, left, right, sub,
 	//Outputs
-	output reg [SIZE - 1:0] quotient, remainder
+	output [SIZE - 1:0] quotient, remainder,
 	// 	Status signals
-	output reg cnt_is_0, divisor_is_0, dvsr_less_than_dvnd, shifted_divisor_MSB,
+	output reg cnt_is_0, divisor_is_0, dvsr_less_than_dvnd, shifted_divisor_MSB
 	);
 	
-reg [SIZE-1:0] shifted_divisor;
-reg [clog2(SIZE)-1:0] cnt; // This should only need 5 bits to count to 32
+wire [SIZE-1:0] shifted_divisor;
+wire [$clog2(SIZE)-1:0] cnt; // This should only need 5 bits to count to 32
 	
 		
-lrShiftSFR
-	# (SIZE)
-   (.clk(clk),
+lrShiftSFR #(SIZE) left_right (
+	.clk(clk),
 	.ld(init),
 	.left(left), .right(right),
 	.D(divisor),
 	.Q(shifted_divisor)
 	);
 	
-subSFR
-	# (SIZE)
-   (.clk(clk),
+subSFR #(SIZE) subtract (
+	.clk(clk),
 	.ld(init),
 	.sub(sub),
 	.D(dividend), // Base subtractee
@@ -46,34 +44,32 @@ subSFR
 	.Q(remainder) // Cur subtractee
 	);
 	
-rShiftSFR
-	# (SIZE)
-   (.clk(clk),
-	.ld(init),
-	.right(right),
-	.D(divisor),
+lShiftSFR #(SIZE) left_shift (
+	.clk(clk),
+	.clr(init),
+	.left(right),
+	.incr(sub),
 	.Q(quotient)
 	);
 	
-udCounterSFR
-	# (clog2(SIZE)) 
-   (.clk(clk),
+udCounterSFR #($clog2(SIZE)) count (
+	.clk(clk),
 	.ld(init),
 	.incr(left), .decr(right),
-	.D(SIZE'd0), // Base count
+	.D({$clog2(SIZE){1'b0}}), // Base count
 	.Q(cnt) // Cur count
 	);
 	
 // Status signal calculation
 	always @(*)
 	begin
-		assign shifted_divisor_MSB <= shifted_divisor[SIZE-1];
+		shifted_divisor_MSB <= shifted_divisor[SIZE-1];
 	
-		divisor_is_0 <= (shifted_divisor == SIZE'd0) ? 1'b1 : 1'b0;
+		divisor_is_0 <= (shifted_divisor == SIZE-1'd0) ? 1'b1 : 1'b0;
 			
-		dvsr_less_than_dvnd <= (shifted_divisor < dividend) ? 1'b1 : 1'b0;
+		dvsr_less_than_dvnd <= (shifted_divisor < remainder) ? 1'b1 : 1'b0;
 						
-		cnt_is_0 <= (cnt == clog2(SIZE)'d0) ? 1'b1 : 1'b0;
+		cnt_is_0 <= (cnt == {$clog2(SIZE){1'b0}}) ? 1'b1 : 1'b0;
 		
 	end
 	

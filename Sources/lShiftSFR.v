@@ -11,12 +11,12 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module rShiftSFR
+module lShiftSFR
 	# (parameter SIZE = 32)
    (input clk,
-	input ld,
-	input right,
-	input [SIZE - 1:0] D,
+	input clr,
+	input left,
+	input incr,
 	output reg [SIZE - 1:0] Q
 	);
 	
@@ -25,17 +25,13 @@ reg [SIZE-1:0] next_Q;
 
 	//register
 	always @( posedge clk )
-		if ( ld == 1'b1 )
-			Q <= D;
-		else
-			Q <= next_Q;
-			
-	// Next Value
-	always @( * )
-		if (right == 1'b1) 
-			next_Q <= (Q >> 1);
-		else
-			next_Q <= Q;
-			
+		if ( clr == 1'b1 )
+			Q = {SIZE{1'b0}};
+		else begin
+			if (incr == 1'b1)
+				Q = Q + 1;
+			if (left == 1'b1)
+				Q = Q << 1;
+		end
 			
 endmodule

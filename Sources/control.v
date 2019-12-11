@@ -80,7 +80,13 @@ reg [`SWIDTH-1:0] state, next_state;
 								
 			SHIFT_RIGHT: // this could be rearanged
 				if( cnt_is_0 == 1'b1 )
-					next_state = NO_ERROR;
+					if (dvsr_less_than_dvnd == 1'b1)
+					begin
+						next_state = SHIFT_RIGHT;
+						sub = 1'b1;
+					end
+					else
+						next_state = NO_ERROR;
 				else if( dvsr_less_than_dvnd == 1'b1 )
 				begin
 					next_state = SHIFT_RIGHT;

@@ -33,7 +33,7 @@ reg [SIZE-1:0] next_Q;
 	// Next Value
 	always @( * )
 		if (left == 1'b1)
-			next_Q <= (Q << l);
+			next_Q <= (Q << 1);
 		else if (right == 1'b1) 
 			next_Q <= (Q >> 1);
 		else
