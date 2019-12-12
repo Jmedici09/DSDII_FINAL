@@ -27,8 +27,12 @@ module divider_control_tb();
 	divider #(8) DUT (	.start(start_iv),
 						.reset(reset_iv),
 						.clk(clk),
+						.divisor(),
+						.dividend(),
 						.error(error_ov),
-						.done(done_ov));
+						.done(done_ov),
+						.quotient(),
+						.remainder());
 						
 	//process for 20 ns clk
 	initial begin	
@@ -36,6 +40,17 @@ module divider_control_tb();
 		forever 
 			#10 clk=~clk;
 	end
+	
+	// Assign block
+	assign divider_control_tb.DUT.cnt_is_0 = cnt_is_0_iv;
+	assign divider_control_tb.DUT.dvsr_less_than_dvnd = dvsr_less_than_dvnd_iv;
+	assign divider_control_tb.DUT.shifted_divisor_MSB = shifted_divisor_MSB_iv;
+	assign divider_control_tb.DUT.divisor_is_0 = divisor_is_0_iv;
+	
+	assign init_ov = DUT.init;
+	assign left_ov = DUT.left;
+	assign right_ov = DUT.right;
+	assign sub_ov = DUT.sub;
 	
 	
 	//test vector pair ((rest,a),output)
@@ -90,7 +105,7 @@ module divider_control_tb();
 			@(posedge clk);
 			#1
 			if(`DEBUG)
-				$display("%5b %5b %5b %5b %15b %8b | %5b %4b %4b %4b %5b %3b (%b)",
+				$display("%5b %5b %5b %5b %16b %8b | %5b %4b %4b %4b %5b %3b (%b)",
 				reset_iv, start_iv, cnt_is_0_iv, divisor_is_0_iv, dvsr_less_than_dvnd_iv, shifted_divisor_MSB_iv,
 						error_ov, done_ov, init_ov, left_ov, right_ov, sub_ov, fsm_outputs[i]);
 			// Ignore outputs that are X
