@@ -1,0 +1,43 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Dec 11 20:16:31 2019
+# Process ID: 14256
+# Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl
+# Command line: vivado.exe -mode tcl -source synth.tcl
+# Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/vivado.log
+# Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl\vivado.jou
+#-----------------------------------------------------------
+source synth.tcl
+phys_opt_design
+report_utilization
+read_checkpoint synth_checkpoint_gray.dcp
+read_checkpoint Reports/synth_checkpoint_gray.dcp
+phys_opt_design -directive AreaOptimized_high -directive AggressiveExplore
+phys_opt_design -directive AggressiveExplore
+opt_design -directive AggressiveExplore
+opt_design -directive Explore
+opt_design -directive ExploreArea
+report_utilization
+help opt_design
+opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only LUT_REMAP -merge_equivalent_drivers
+opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only LUT_REMAP
+opt_design -directive ExploreArea -sweep -resynth_area -LUT_REMAP_opt_only
+opt_design -help
+opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only
+opt_design -directive ExploreArea -property_opt_only
+set_property LUT_REMAP 1 [get_cells ../Sources/* -filter {ref_name =~ LUT*}]
+set_property LUT_REMAP 1
+set_property LUT_REMAP 1 [divisor]
+set_property LUT_REMAP 1 [divider]
+set_property LUT_REMAP 1 [get_cells divider]
+get_cells divider
+gui
+open_gui
+run_gui
+help *gui*
+start_gui
+refresh_design
+synth_design
+read_verilog C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v

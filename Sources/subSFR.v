@@ -22,21 +22,13 @@ module subSFR
 	);
 	
 
-reg [SIZE-1:0] next_Q;
-
 	//register
 	always @( posedge clk )
 		if ( ld == 1'b1 )
 			Q <= D;
+		else if (sub == 1'b1)
+			Q <= (Q - S);
 		else
-			Q <= next_Q;
-			
-	// Next Value
-	always @( * )
-		if (sub == 1'b1)
-			next_Q <= (Q - S);
-		else
-			next_Q <= Q;
-			
-			
+			Q <= Q;
+	
 endmodule

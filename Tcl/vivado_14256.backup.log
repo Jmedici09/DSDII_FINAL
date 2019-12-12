@@ -1,0 +1,1933 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Dec 11 20:16:31 2019
+# Process ID: 14256
+# Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl
+# Command line: vivado.exe -mode tcl -source synth.tcl
+# Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/vivado.log
+# Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl\vivado.jou
+#-----------------------------------------------------------
+source synth.tcl
+# set sourceInputDir "../Sources"
+# set constraintsInputDir "../Constraints"
+# set outputDir "./Reports"
+# file mkdir $outputDir
+# read_verilog {
+# 	../Sources/divider.v
+# 	../Sources/control.v
+# 	../Sources/datapath.v
+# 	../Sources/lrShiftSFR.v
+# 	../Sources/lShiftSFR.v
+# 	../Sources/subSFR.v
+# 	../Sources/udCounterSFR.v}
+# read_xdc $constraintsInputDir/constraints.xdc
+# set_property part xc7a35tcpg236-2L [current_project]
+# synth_design -fsm_extraction gray -directive AreaOptimized_high -resource_sharing on -retiming -top divider > $outputDir/synth_out_gray.rpt
+Command: synth_design -fsm_extraction gray -directive AreaOptimized_high -resource_sharing on -retiming -top divider
+Starting synth_design
+Using part: xc7a35tcpg236-2L
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-2L
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 16168 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 676.016 ; gain = 177.547
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'divider' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/divider.v:13]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'control' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/control.v:16]
+	Parameter SIZE bound to: 8 - type: integer 
+	Parameter WAIT_FOR_START bound to: 3'b000 
+	Parameter CHECK_DIVIDE_BY_ZERO bound to: 3'b001 
+	Parameter ERROR bound to: 3'b010 
+	Parameter SHIFT_LEFT bound to: 3'b011 
+	Parameter SHIFT_RIGHT bound to: 3'b100 
+	Parameter NO_ERROR bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'control' (1#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/control.v:16]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/datapath.v:13]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'lrShiftSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'lrShiftSFR' (2#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'subSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/subSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'subSFR' (3#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/subSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'lShiftSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lShiftSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'lShiftSFR' (4#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lShiftSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'udCounterSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:13]
+	Parameter SIZE bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'udCounterSFR' (5#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (6#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/datapath.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'divider' (7#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/divider.v:13]
+WARNING: [Synth 8-3331] design datapath has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 740.824 ; gain = 242.355
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 740.824 ; gain = 242.355
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 740.824 ; gain = 242.355
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Finished Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 843.961 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.035 . Memory (MB): peak = 843.961 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:22 ; elapsed = 00:00:23 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'control'
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:27]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          WAIT_FOR_START |                              000 |                              000
+    CHECK_DIVIDE_BY_ZERO |                              001 |                              001
+              SHIFT_LEFT |                              011 |                              011
+             SHIFT_RIGHT |                              010 |                              100
+                NO_ERROR |                              111 |                              101
+                   ERROR |                              110 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'gray' in module 'control'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:22 ; elapsed = 00:00:24 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 5     
+	   2 Input     31 Bit        Muxes := 1     
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 10    
+	   6 Input      1 Bit        Muxes := 4     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module control 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input      3 Bit        Muxes := 1     
+	   2 Input      3 Bit        Muxes := 4     
+	   2 Input      1 Bit        Muxes := 3     
+	   6 Input      1 Bit        Muxes := 4     
+Module lrShiftSFR 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+Module subSFR 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+Module lShiftSFR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module udCounterSFR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   2 Input      2 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module datapath 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:26 ; elapsed = 00:00:28 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:42 ; elapsed = 00:00:44 . Memory (MB): peak = 843.961 ; gain = 345.492
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:43 ; elapsed = 00:00:46 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `divider`
+	Effective logic levels on critical path before retiming is: 7
+	Total number of crtical paths = 36
+
+	Optimizing at the module level
+	Cannot find a feasible solution:
+		Effective logic levels from C/FSM_gray_state_reg[2](fixed:OUTPUT) to D/subtract/Q_reg[16](fixed:INPUT) is: 6
+		Effective logic levels found across for latency (=1) is: 6
+	Optimizing locally to improve critical paths(may not reduce worst delay)
+
+	Effective logic levels on critical path after retiming is: 7
+	Total number of crtical paths = 36
+	Numbers of forward move = 0, and backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `divider' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:44 ; elapsed = 00:00:46 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    20|
+|3     |LUT1   |     1|
+|4     |LUT2   |    11|
+|5     |LUT3   |    33|
+|6     |LUT4   |    75|
+|7     |LUT5   |    58|
+|8     |LUT6   |     8|
+|9     |FDRE   |   104|
+|10    |IBUF   |    67|
+|11    |OBUF   |    66|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------------+-------------+------+
+|      |Instance       |Module       |Cells |
++------+---------------+-------------+------+
+|1     |top            |             |   444|
+|2     |  C            |control      |    75|
+|3     |  D            |datapath     |   235|
+|4     |    count      |udCounterSFR |    12|
+|5     |    left_right |lrShiftSFR   |   101|
+|6     |    left_shift |lShiftSFR    |    70|
+|7     |    subtract   |subSFR       |    48|
++------+---------------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:35 ; elapsed = 00:00:47 . Memory (MB): peak = 872.785 ; gain = 271.180
+Synthesis Optimization Complete : Time (s): cpu = 00:00:49 ; elapsed = 00:00:51 . Memory (MB): peak = 872.785 ; gain = 374.316
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Finished Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 896.879 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:59 ; elapsed = 00:01:04 . Memory (MB): peak = 896.879 ; gain = 608.117
+# write_checkpoint -force $outputDir/synth_checkpoint_gray.dcp
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 896.879 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/Reports/synth_checkpoint_gray.dcp' has been generated.
+# opt_design -sweep -resynth_area -aggressive_remap -merge_equivalent_drivers -debug_log > $outputDir/opt_out_gray.rpt
+Command: opt_design -sweep -resynth_area -aggressive_remap -merge_equivalent_drivers -debug_log
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 896.879 ; gain = 0.000
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 1 Sweep
+Phase 1 Sweep | Checksum: 1352c254e
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:08 . Memory (MB): peak = 1364.105 ; gain = 456.008
+INFO: [Opt 31-389] Phase Sweep created 8 cells and removed 0 cells
+
+Phase 2 Merging equivalent drivers
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[13]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[17]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[1]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[21]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[25]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[29]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[5]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-439] Instance D/left_shift/Q_reg[9]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+INFO: [Opt 31-405] Cells C/FSM_gray_state[1]_i_1, C/error_OBUF_inst_i_1 cannot be merged because the instance's INIT string mismatch
+INFO: [Opt 31-405] Cells C/Q[31]_i_1__0, C/Q[3]_i_2 cannot be merged because the instance's INIT string mismatch
+Phase 2 Merging equivalent drivers | Checksum: 1352c254e
+
+Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1364.105 ; gain = 456.008
+INFO: [Opt 31-389] Phase Merging equivalent drivers created 0 cells and removed 0 cells
+
+Phase 3 Remap
+INFO: [Opt 31-528] Cannot remap pin: D/count/Q[2]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: D/count/Q[3]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[4]_i_1__1/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[31]_i_2__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/FSM_gray_state[2]_i_1/O, Reason: Prevented by SOFT_HLUTNM constraint
+Phase 3 Remap | Checksum: a2788311
+
+Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1364.105 ; gain = 456.008
+INFO: [Opt 31-389] Phase Remap created 7 cells and removed 8 cells
+
+Phase 4 Resynthesis
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-74] Optimized 0 modules.
+INFO: [Opt 31-431] constant propagation found 0 starting points
+INFO: [Opt 31-677] Could not push inverter D/count/Q[0]_i_1__0 to load D/count/Q_reg[0] because inversion is not supported on the pin D
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Resynthesis | Checksum: 117fc2b14
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:28 . Memory (MB): peak = 1405.531 ; gain = 497.434
+INFO: [Opt 31-389] Phase Resynthesis created 0 cells and removed 0 cells
+
+Phase 5 Post Processing Netlist
+INFO: [Opt 31-677] Could not push inverter D/count/Q[0]_i_1__0 to load D/count/Q_reg[0] because inversion is not supported on the pin D
+Phase 5 Post Processing Netlist | Checksum: 117fc2b14
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:28 . Memory (MB): peak = 1405.531 ; gain = 497.434
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+------------------------------------------------------------------------------------------------------------------------
+|  Phase                       |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+------------------------------------------------------------------------------------------------------------------------
+|  Sweep                       |               8  |               0  |                                              0  |
+|  Merging equivalent drivers  |               0  |               0  |                                              0  |
+|  Remap                       |               7  |               8  |                                              0  |
+|  Resynthesis                 |               0  |               0  |                                              0  |
+|  Post Processing Netlist     |               0  |               0  |                                              0  |
+------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:10 ; elapsed = 00:00:28 . Memory (MB): peak = 1405.531 ; gain = 497.434
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1405.531 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1405.531 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+32 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:34 . Memory (MB): peak = 1405.531 ; gain = 508.652
+# report_utilization -file $outputDir/synth_utilization_gray.rpt
+# report_timing -file $outputDir/synth_timing_gray.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+Vivado% phys_opt_design
+Command: phys_opt_design
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Vivado_Tcl 4-383] Design worst setup slack (WNS) is greater than or equal to 0.250 ns. Skipping all physical synthesis optimizations.
+INFO: [Vivado_Tcl 4-232] No setup violation found. The netlist was not modified.
+INFO: [Common 17-83] Releasing license: Implementation
+4 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+phys_opt_design completed successfully
+Vivado% report_utilization
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec 11 20:20:42 2019
+| Host         : Walter_2in1 running 64-bit major release  (build 9200)
+| Command      : report_utilization
+| Design       : divider
+| Device       : 7a35tcpg236-2L
+| Design State : Synthesized
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Slice Logic
+1.1 Summary of Registers by Type
+2. Memory
+3. DSP
+4. IO and GT Specific
+5. Clocking
+6. Specific Feature
+7. Primitives
+8. Black Boxes
+9. Instantiated Netlists
+
+1. Slice Logic
+--------------
+
++-------------------------+------+-------+-----------+-------+
+|        Site Type        | Used | Fixed | Available | Util% |
++-------------------------+------+-------+-----------+-------+
+| Slice LUTs*             |  140 |     0 |     20800 |  0.67 |
+|   LUT as Logic          |  140 |     0 |     20800 |  0.67 |
+|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
+| Slice Registers         |  112 |     0 |     41600 |  0.27 |
+|   Register as Flip Flop |  112 |     0 |     41600 |  0.27 |
+|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
+| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
++-------------------------+------+-------+-----------+-------+
+* Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
+
+
+1.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
+| 0     |          Yes |         Set |            - |
+| 112   |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+
+2. Memory
+---------
+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| Block RAM Tile |    0 |     0 |        50 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
+|   RAMB18       |    0 |     0 |       100 |  0.00 |
++----------------+------+-------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
+
+
+3. DSP
+------
+
++-----------+------+-------+-----------+-------+
+| Site Type | Used | Fixed | Available | Util% |
++-----------+------+-------+-----------+-------+
+| DSPs      |    0 |     0 |        90 |  0.00 |
++-----------+------+-------+-----------+-------+
+
+
+4. IO and GT Specific
+---------------------
+
++-----------------------------+------+-------+-----------+--------+
+|          Site Type          | Used | Fixed | Available |  Util% |
++-----------------------------+------+-------+-----------+--------+
+| Bonded IOB                  |  133 |     0 |       106 | 125.47 |
+| Bonded IPADs                |    0 |     0 |        10 |   0.00 |
+| Bonded OPADs                |    0 |     0 |         4 |   0.00 |
+| PHY_CONTROL                 |    0 |     0 |         5 |   0.00 |
+| PHASER_REF                  |    0 |     0 |         5 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |        20 |   0.00 |
+| IN_FIFO                     |    0 |     0 |        20 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |         5 |   0.00 |
+| IBUFDS                      |    0 |     0 |       104 |   0.00 |
+| GTPE2_CHANNEL               |    0 |     0 |         2 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |   0.00 |
+| IBUFDS_GTE2                 |    0 |     0 |         2 |   0.00 |
+| ILOGIC                      |    0 |     0 |       106 |   0.00 |
+| OLOGIC                      |    0 |     0 |       106 |   0.00 |
++-----------------------------+------+-------+-----------+--------+
+
+
+5. Clocking
+-----------
+
++------------+------+-------+-----------+-------+
+|  Site Type | Used | Fixed | Available | Util% |
++------------+------+-------+-----------+-------+
+| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFIO      |    0 |     0 |        20 |  0.00 |
+| MMCME2_ADV |    0 |     0 |         5 |  0.00 |
+| PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
+| BUFMRCE    |    0 |     0 |        10 |  0.00 |
+| BUFHCE     |    0 |     0 |        72 |  0.00 |
+| BUFR       |    0 |     0 |        20 |  0.00 |
++------------+------+-------+-----------+-------+
+
+
+6. Specific Feature
+-------------------
+
++-------------+------+-------+-----------+-------+
+|  Site Type  | Used | Fixed | Available | Util% |
++-------------+------+-------+-----------+-------+
+| BSCANE2     |    0 |     0 |         4 |  0.00 |
+| CAPTUREE2   |    0 |     0 |         1 |  0.00 |
+| DNA_PORT    |    0 |     0 |         1 |  0.00 |
+| EFUSE_USR   |    0 |     0 |         1 |  0.00 |
+| FRAME_ECCE2 |    0 |     0 |         1 |  0.00 |
+| ICAPE2      |    0 |     0 |         2 |  0.00 |
+| PCIE_2_1    |    0 |     0 |         1 |  0.00 |
+| STARTUPE2   |    0 |     0 |         1 |  0.00 |
+| XADC        |    0 |     0 |         1 |  0.00 |
++-------------+------+-------+-----------+-------+
+
+
+7. Primitives
+-------------
+
++----------+------+---------------------+
+| Ref Name | Used | Functional Category |
++----------+------+---------------------+
+| FDRE     |  112 |        Flop & Latch |
+| LUT4     |   72 |                 LUT |
+| IBUF     |   67 |                  IO |
+| OBUF     |   66 |                  IO |
+| LUT5     |   56 |                 LUT |
+| LUT3     |   34 |                 LUT |
+| CARRY4   |   20 |          CarryLogic |
+| LUT6     |   11 |                 LUT |
+| LUT2     |   11 |                 LUT |
+| LUT1     |    1 |                 LUT |
+| BUFG     |    1 |               Clock |
++----------+------+---------------------+
+
+
+8. Black Boxes
+--------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+9. Instantiated Netlists
+------------------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+Vivado% read_checkpoint synth_checkpoint_gray.dcp
+Command: read_checkpoint synth_checkpoint_gray.dcp
+ERROR: [Common 17-69] Command failed: File 'C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/synth_checkpoint_gray.dcp' does not exist
+
+Vivado% read_checkpoint Reports/synth_checkpoint_gray.dcp
+Command: read_checkpoint Reports/synth_checkpoint_gray.dcp
+design_1
+Vivado% phys_opt_design -directive AreaOptimized_high -directive AggressiveExplore
+Command: phys_opt_design -directive AreaOptimized_high -directive AggressiveExplore
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-83] Releasing license: Implementation
+2 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+phys_opt_design failed
+ERROR: [Common 17-158] 'directive' can only be specified once.
+
+Vivado% phys_opt_design -directive AggressiveExplore
+Command: phys_opt_design -directive AggressiveExplore
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Vivado_Tcl 4-137] Directive used for phys_opt_design is: AggressiveExplore
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1423.438 ; gain = 0.000
+
+Starting Physical Synthesis Task
+
+Phase 1 Physical Synthesis Initialization
+ERROR: [Physopt 32-41] Found unplaced instances. All instances must be placed before calling phys_opt_design. First (up to) five cell names: 
+   C/FSM_gray_state[0]_i_1 (cellName: LUT6)
+   C/FSM_gray_state[1]_i_1 (cellName: LUT3)
+   C/FSM_gray_state[2]_i_1 (cellName: LUT5)
+   C/FSM_gray_state_reg[0] (cellName: FDRE)
+   C/FSM_gray_state_reg[1] (cellName: FDRE)
+Resolution: Please run place_design to make sure that all instances are placed. After that, phys_opt_design can be run.
+Phase 1 Physical Synthesis Initialization | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.210 . Memory (MB): peak = 1423.438 ; gain = 0.000
+Ending Physical Synthesis Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.253 . Memory (MB): peak = 1423.438 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+6 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+phys_opt_design failed
+ERROR: [Common 17-39] 'phys_opt_design' failed due to earlier errors.
+
+Vivado% opt_design -directive AggressiveExplore
+Command: opt_design -directive AggressiveExplore
+INFO: [Vivado_Tcl 4-136] Directive used for opt_design is: AggressiveExplore
+ERROR: [Constraints 18-641] Directive 'AggressiveExplore' is not a recognized directive. Please select a supported directive.
+1 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+opt_design completed successfully
+ERROR: [Common 17-39] 'opt_design' failed due to earlier errors.
+
+Vivado% opt_design -directive Explore
+Command: opt_design -directive Explore
+INFO: [Vivado_Tcl 4-136] Directive used for opt_design is: Explore
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:01 . Memory (MB): peak = 1437.422 ; gain = 13.980
+
+Starting Cache Timing Information Task
+Ending Cache Timing Information Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.095 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.248 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.305 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.346 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.462 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.556 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Post Processing Netlist
+Phase 6 Post Processing Netlist | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.588 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.014 . Memory (MB): peak = 1437.422 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.695 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.170 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1437.422 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+17 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 1437.422 ; gain = 13.984
+0
+Vivado% opt_design -directive ExploreArea
+Command: opt_design -directive ExploreArea
+INFO: [Vivado_Tcl 4-136] Directive used for opt_design is: ExploreArea
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:02 ; elapsed = 00:00:01 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Cache Timing Information Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+Ending Cache Timing Information Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.054 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Logic Optimization Task
+
+Phase 1 Retarget
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-49] Retargeted 0 cell(s).
+Phase 1 Retarget | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.069 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Retarget created 0 cells and removed 0 cells
+
+Phase 2 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 2 Constant propagation | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.097 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 3 Sweep
+Phase 3 Sweep | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.132 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 4 BUFG optimization
+Phase 4 BUFG optimization | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.169 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-662] Phase BUFG optimization created 0 cells of which 0 are BUFGs and removed 0 cells.
+
+Phase 5 Shift Register Optimization
+INFO: [Opt 31-1064] SRL Remap converted 0 SRLs to 0 registers and converted 0 registers of register chains to 0 SRLs
+Phase 5 Shift Register Optimization | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.209 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Shift Register Optimization created 0 cells and removed 0 cells
+
+Phase 6 Constant propagation
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 6 Constant propagation | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.237 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Constant propagation created 0 cells and removed 0 cells
+
+Phase 7 Sweep
+Phase 7 Sweep | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.272 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 8 Resynthesis
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-74] Optimized 0 modules.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 8 Resynthesis | Checksum: b1763232
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Resynthesis created 0 cells and removed 0 cells
+
+Phase 9 Post Processing Netlist
+Phase 9 Post Processing Netlist | Checksum: b1763232
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+-------------------------------------------------------------------------------------------------------------------------
+|  Phase                        |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+-------------------------------------------------------------------------------------------------------------------------
+|  Retarget                     |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  BUFG optimization            |               0  |               0  |                                              0  |
+|  Shift Register Optimization  |               0  |               0  |                                              0  |
+|  Constant propagation         |               0  |               0  |                                              0  |
+|  Sweep                        |               0  |               0  |                                              0  |
+|  Resynthesis                  |               0  |               0  |                                              0  |
+|  Post Processing Netlist      |               0  |               0  |                                              0  |
+-------------------------------------------------------------------------------------------------------------------------
+
+
+
+Starting Connectivity Check Task
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 1437.422 ; gain = 0.000
+Ending Logic Optimization Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Power Optimization Task
+INFO: [Pwropt 34-132] Skipping clock gating for clocks with a period < 2.00 ns.
+Ending Power Optimization Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.008 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Final Cleanup Task
+Ending Final Cleanup Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 1437.422 ; gain = 0.000
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1437.422 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: b1763232
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.010 . Memory (MB): peak = 1437.422 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+25 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1437.422 ; gain = 0.000
+0
+Vivado% report_utilization
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Wed Dec 11 20:25:39 2019
+| Host         : Walter_2in1 running 64-bit major release  (build 9200)
+| Command      : report_utilization
+| Design       : divider
+| Device       : 7a35tcpg236-2L
+| Design State : Synthesized
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Slice Logic
+1.1 Summary of Registers by Type
+2. Memory
+3. DSP
+4. IO and GT Specific
+5. Clocking
+6. Specific Feature
+7. Primitives
+8. Black Boxes
+9. Instantiated Netlists
+
+1. Slice Logic
+--------------
+
++-------------------------+------+-------+-----------+-------+
+|        Site Type        | Used | Fixed | Available | Util% |
++-------------------------+------+-------+-----------+-------+
+| Slice LUTs*             |  140 |     0 |     20800 |  0.67 |
+|   LUT as Logic          |  140 |     0 |     20800 |  0.67 |
+|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
+| Slice Registers         |  112 |     0 |     41600 |  0.27 |
+|   Register as Flip Flop |  112 |     0 |     41600 |  0.27 |
+|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
+| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
++-------------------------+------+-------+-----------+-------+
+* Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
+
+
+1.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
+| 0     |          Yes |         Set |            - |
+| 112   |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+
+2. Memory
+---------
+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| Block RAM Tile |    0 |     0 |        50 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
+|   RAMB18       |    0 |     0 |       100 |  0.00 |
++----------------+------+-------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
+
+
+3. DSP
+------
+
++-----------+------+-------+-----------+-------+
+| Site Type | Used | Fixed | Available | Util% |
++-----------+------+-------+-----------+-------+
+| DSPs      |    0 |     0 |        90 |  0.00 |
++-----------+------+-------+-----------+-------+
+
+
+4. IO and GT Specific
+---------------------
+
++-----------------------------+------+-------+-----------+--------+
+|          Site Type          | Used | Fixed | Available |  Util% |
++-----------------------------+------+-------+-----------+--------+
+| Bonded IOB                  |  133 |     0 |       106 | 125.47 |
+| Bonded IPADs                |    0 |     0 |        10 |   0.00 |
+| Bonded OPADs                |    0 |     0 |         4 |   0.00 |
+| PHY_CONTROL                 |    0 |     0 |         5 |   0.00 |
+| PHASER_REF                  |    0 |     0 |         5 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |        20 |   0.00 |
+| IN_FIFO                     |    0 |     0 |        20 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |         5 |   0.00 |
+| IBUFDS                      |    0 |     0 |       104 |   0.00 |
+| GTPE2_CHANNEL               |    0 |     0 |         2 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |   0.00 |
+| IBUFDS_GTE2                 |    0 |     0 |         2 |   0.00 |
+| ILOGIC                      |    0 |     0 |       106 |   0.00 |
+| OLOGIC                      |    0 |     0 |       106 |   0.00 |
++-----------------------------+------+-------+-----------+--------+
+
+
+5. Clocking
+-----------
+
++------------+------+-------+-----------+-------+
+|  Site Type | Used | Fixed | Available | Util% |
++------------+------+-------+-----------+-------+
+| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFIO      |    0 |     0 |        20 |  0.00 |
+| MMCME2_ADV |    0 |     0 |         5 |  0.00 |
+| PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
+| BUFMRCE    |    0 |     0 |        10 |  0.00 |
+| BUFHCE     |    0 |     0 |        72 |  0.00 |
+| BUFR       |    0 |     0 |        20 |  0.00 |
++------------+------+-------+-----------+-------+
+
+
+6. Specific Feature
+-------------------
+
++-------------+------+-------+-----------+-------+
+|  Site Type  | Used | Fixed | Available | Util% |
++-------------+------+-------+-----------+-------+
+| BSCANE2     |    0 |     0 |         4 |  0.00 |
+| CAPTUREE2   |    0 |     0 |         1 |  0.00 |
+| DNA_PORT    |    0 |     0 |         1 |  0.00 |
+| EFUSE_USR   |    0 |     0 |         1 |  0.00 |
+| FRAME_ECCE2 |    0 |     0 |         1 |  0.00 |
+| ICAPE2      |    0 |     0 |         2 |  0.00 |
+| PCIE_2_1    |    0 |     0 |         1 |  0.00 |
+| STARTUPE2   |    0 |     0 |         1 |  0.00 |
+| XADC        |    0 |     0 |         1 |  0.00 |
++-------------+------+-------+-----------+-------+
+
+
+7. Primitives
+-------------
+
++----------+------+---------------------+
+| Ref Name | Used | Functional Category |
++----------+------+---------------------+
+| FDRE     |  112 |        Flop & Latch |
+| LUT4     |   72 |                 LUT |
+| IBUF     |   67 |                  IO |
+| OBUF     |   66 |                  IO |
+| LUT5     |   56 |                 LUT |
+| LUT3     |   34 |                 LUT |
+| CARRY4   |   20 |          CarryLogic |
+| LUT6     |   11 |                 LUT |
+| LUT2     |   11 |                 LUT |
+| LUT1     |    1 |                 LUT |
+| BUFG     |    1 |               Clock |
++----------+------+---------------------+
+
+
+8. Black Boxes
+--------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+9. Instantiated Netlists
+------------------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+Vivado% help opt_design
+opt_design
+
+Description: 
+Optimize the current netlist. This will perform the retarget, propconst, sweep and bram_power_opt optimizations by default.
+
+Syntax: 
+opt_design  [-retarget] [-propconst] [-sweep] [-bram_power_opt] [-remap]
+            [-aggressive_remap] [-resynth_area] [-resynth_seq_area]
+            [-directive <arg>] [-muxf_remap] [-hier_fanout_limit <arg>]
+            [-bufg_opt] [-shift_register_opt] [-dsp_register_opt]
+            [-srl_remap_modes <arg>] [-control_set_merge]
+            [-merge_equivalent_drivers] [-carry_remap] [-debug_log]
+            [-property_opt_only] [-quiet] [-verbose]
+
+Usage: 
+  Name                         Description
+  ----------------------------------------
+  [-retarget]                  Retarget
+  [-propconst]                 Propagate constants across leaf-level 
+                               instances
+  [-sweep]                     Remove unconnected leaf-level instances
+  [-bram_power_opt]            Perform Block RAM power optimizations
+  [-remap]                     Remap logic optimally in LUTs
+  [-aggressive_remap]          High effort remap optimization
+  [-resynth_area]              Resynthesis
+  [-resynth_seq_area]          Resynthesis (with Sequential optimizations)
+  [-directive]                 Mode of behavior (directive) for this command.
+                               Please refer to Arguments section of this help
+                               for values for this option
+                               Default: Default
+  [-muxf_remap]                Optimize all MuxFx cells to LUT3
+  [-hier_fanout_limit]         Replicate by module with threshold N
+  [-bufg_opt]                  Insert, Merge and Split BUFGs
+  [-shift_register_opt]        Pull register stage from shift register
+  [-dsp_register_opt]          Push/Pull Registers out of a DSP
+  [-srl_remap_modes]           remap shift registers to flops or flops to 
+                               shift registers
+  [-control_set_merge]         Merge all equivalent control set drivers to a 
+                               single driver
+  [-merge_equivalent_drivers]  Merge all LUT,Flop equivalent driver 
+                               replications
+  [-carry_remap]               reamp carries into luts
+  [-debug_log]                 show debug message
+  [-property_opt_only]         Do targeted optimizations on tagged cells
+  [-quiet]                     Ignore command errors
+  [-verbose]                   Suspend message limits during command 
+                               execution
+
+Categories: 
+Tools
+
+Description:
+
+  Optimizes a design netlist for the target part. Optimization can provide
+  improvements to synthesized netlists from third-party tools, or for
+  netlists that may not have been optimized during synthesis.
+
+  Run this command after synthesis but prior to implementation to optimize
+  the design and simplify the netlist before placing and routing the design.
+  Assign the DONT_TOUCH property to prevent the optimization of individual
+  cells.
+
+  Note: To see what actions opt_design is taking in optimizing your design,
+  you can use the -verbose option to get a more detailed transcript of the
+  process. This can help you in understanding and debugging some of the
+  changes made to your design.
+
+  The opt_design command performs the following optimizations by default:
+
+   *  Retarget
+
+   *  Constant Propagation
+
+   *  Sweep
+
+   *  Global Buffer (BUFG) optimizations
+
+   *  DSP Register optimizations
+
+   *  Shift-Register Logic optimizations
+
+   *  Block RAM Power optimizations
+
+   *  Implement MIG cores
+
+   *  Implement Debug cores
+
+  Note: Using command-line options for specific optimizations results in
+  opt_design performing only the specified optimizations and disabling all
+  others, even the ones that are usually performed by default.
+
+  To perform LUT Remapping, you must specify -remap.
+
+  To perform area-based re-synthesis, you must specify -resynth_area, or
+  -directive ExploreArea.
+
+  To perform sequential area-based re-synthesis, you must specify
+  -resynth_seq_area, or -directive ExploreSequentialArea.
+
+Arguments:
+
+  -retarget - (Optional) Retarget one type of block to another when
+  retargetting the design from one device family to another. For example,
+  retarget instantiated MUXCY or XORCY components into a CARRY4 block; or
+  retarget DCM to MMCM. The retarget optimization also absorbs inverters into
+  downstream logic where possible.
+
+  Note: The -retarget argument is optional, as are the other optimizations.
+  However this optimization is run by default unless explicitly overridden by
+  another optimization.
+
+  -propconst - (Optional) Propagate constant inputs through the circuit,
+  resulting in a simplified netlist. Propagation of constants can eliminate
+  redundant combinational logic from the netlist.
+
+  -sweep - (Optional) Remove unnecessary logic, removing loadless cells and
+  nets.
+
+  -bram_power_opt - (Optional) Enables power optimization on Block RAM cells.
+  Changes the WRITE_MODE on unread ports of true dual-port RAMs to NO_CHANGE,
+  and applies intelligent clock gating to Block RAM outputs.
+
+  Note: Specific BRAM cells can be excluded from this optimization using the
+  set_power_opt command.
+
+  -remap - (Optional) Remap the design to combine multiple LUTs into a single
+  LUT to reduce the depth of the logic.
+
+  -aggressive_remap - (Optional) Similar to the -remap option to reduce LUT
+  logic depth but more exhaustive. This may reduce more LUT levels at the
+  expense of longer optimization runtime.
+
+  -resynth_area - (Optional) Perform re-synthesis in area mode to reduce the
+  number of LUTs.
+
+  -resynth_seq_area - (Optional) Perform re-synthesis to reduce both
+  combinational and sequential logic. Performs a superset of the optimization
+  provided by -resynth_area.
+
+  -directive <arg> - (Optional) Direct the mode of optimization with specific
+  design objectives. Only one directive can be specified for a single
+  opt_design command, and values are case-sensitive. Supported values
+  include:
+
+   *  Explore - Run multiple passes of optimization to improve results.
+
+   *  ExploreArea - Run multiple passes of optimization, with an emphasis on
+      reducing area.
+
+   *  ExploreWithRemap - Similar to ExploreArea but adds the remap
+      optimization to compress logic levels.
+
+   *  ExploreSequentialArea - Run multiple passes of optimization, with an
+      emphasis on reducing registers and related combinational logic.
+
+   *  AddRemap - Run the default optimization, and include LUT remapping to
+      reduce logic levels.
+
+   *  NoBramPowerOpt - Runs opt_design without the default BRAM power
+      optimization.
+
+   *  RuntimeOptimized - Run the fewest iterations, trading optimization
+      results for faster runtime.
+
+   *  Default - Run the default optimization.
+
+  Refer to the Vivado Design Suite User Guide: Implementation (UG904) for
+  more information on the effects of each directive.
+
+  Note: The -directive option controls the overall optimization strategy, and
+  is not compatible with any specific optimization options. It can only be
+  used with -debug_log, -quiet and -verbose.
+
+  -muxf_remap - (Optional) Convert MUXFs to LUT3s opportunistically when it
+  can potentially improve route-ability of the design without affecting
+  timing.
+
+  -hier_fanout_limit <arg> - (Optional) Net drivers with fanout greater than
+  the specified limit (<arg>) will be replicated according to the logical
+  hierarchy. For each hierarchical instance driven by the high-fanout net, if
+  the fanout within the hierarchy is greater than the specified limit, then
+  the net within the hierarchy is driven by a replica of the driver of the
+  high-fanout net.
+
+  -bufg_opt - (Optional) Perform various optimizations related to global
+  buffers (BUFG/BUFGCE): Insert a buffer on unbuffered clock nets (fanout >
+  30). Insert BUFGs on high fanout nets where the control set pin count on
+  the net exceeds the tool threshold. Perform load-splitting when a
+  high-fanout net drives both combinational and sequential logic: the
+  combinational portion bypasses the BUFG because the added delay is too
+  large.
+
+  Note: The phys_opt_design command can be used to optimize the combinational
+  portion, while the sequential portion can be driven by BUFG.
+
+  -shift_register_opt - (Optional) For high-fanout nets originating from an
+  SRL, add output register pipeline stages to improve timing prior to the
+  high-fanout net replication. This optimization is performed as part of the
+  default optimization.
+
+  -dsp_register_opt - (Optional) Pull registers out of a DSP, or push
+  registers into a DSP, to improve timing and resource utilization as needed.
+  This optimization is performed as part of the default optimization.
+
+  -srl_remap_modes <args> - (Optional) Many designs have timing closure
+  issues related to deep SRLs, and long register chains. This option provides
+  both an automatic rule to trigger remapping between FF chains and SRLs, and
+  also a manual rule to specify when to convert a FF chain to an SRL, or an
+  SRL to a FF chain. Automatic remapping starts with the longest FF chains
+  and converts those to SRLs when needed to reduce FF utilization, and takes
+  the shallowest SRLs and converts those to FF chains when needed to reduce
+  LUT utilization. Manual remapping takes FF chains in excess of specified
+  lengths and remaps them to SRLs, and takes SRLs with specified depths and
+  remaps them to FF chains. The automatic and manual modes cannot both be
+  used in the same opt_design command pass. The following shows the syntax
+  for the automatic and manual rules:
+
+   *  Automatic:
+
+       -  -srl_remap_modes {{target_ff_util <util> target_lutram_util
+          <util>}}: Where <util> is a number from 0 to 100 expressed as a
+          percentage of utilization. When either FF or LUTs exceed the
+          specified utilization, the tool remaps as needed. When both
+          utilization rates are exceeded neither is remapped.
+
+   *  Manual:
+
+       -  -srl_remap_modes {{min_depth_ffs_to_srl <val>}{max_depth_srl_to_ffs
+          <val>}}: Where <val> specifies the depth of an SRL or length of a
+          FF chain. When a FF chain is greater than the specified min value,
+          the chain is remapped to an SRL with the required depth. If an SRL
+          has depth less than or equal to the specified max value, the SRL is
+          remapped to a FF chain.
+
+  -control_set_merge - (Optional) Reduce the drivers of logically-equivalent
+  control signals to a single driver. This is like a reverse fanout
+  replication, and results in nets that are better suited for module-based
+  replication.
+
+  -merge_equivalent_drivers - (Optional) This option merges equivalent
+  drivers on both control signals and non-control signals, to reduce logic in
+  the design.
+
+  -carry_remap - (Optional) Remap carry signals into LUTs.
+
+  -debug_log - (Optional) Generate log file for debugging purposes.
+
+  -property_opt_only - (Optional) Indicates that the opt_design command
+  should be driven only by properties on objects in the design, and not by
+  the options defined as part of the command syntax. Refer to the Vivado
+  Design Suite Properties Reference Manual (UG912) for more information on
+  specific properties. The following properties trigger property-only
+  optimizations: CARRY_REMAP, CONTROL_SET_REMAP, EQUIVALENT_DRIVER_OPT,
+  LUT_REMAP, MUXF_REMAP, REG_TO_SRL, SRL_STAGES_TO_REG_INPUT,
+  SRL_STAGES_TO_REG_OUTPUT, SRL_TO_REG.
+
+  Note: When -property_opt_only is specified, the tool will return an error
+  if additional optimizations have been specified in the opt_design command.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command. This option displays detailed information
+  about the logic that is affected by each optimization.
+
+Examples:
+
+  The following example performs all four default optimizations: retarget,
+  constant propagation, sweep, and BRAM power optimization. The command
+  returns detailed results with the -verbose switch:
+
+    opt_design -verbose
+
+  This example excludes specific BRAM cells from power optimization using the
+  set_power_opt command, and then runs opt_design with the four default
+  optimizations:
+
+    
+    set_power_opt -exclude_cells [get_cells \  
+       -filter {PRIMITIVE_TYPE =~ BMEM.*.*} \  
+       -of_objects [get_pins -leaf -filter {DIRECTION == IN} \  
+       -of_objects [get_nets -of_objects [get_pins clock/bufgctrl_clk_mld/O]]]]  
+    opt_design 
+    
+
+  The following example performs the sweep and retarget optimizations:
+
+    
+    opt_design -sweep -retarget 
+    
+
+  Note: Because -sweep and -retarget are expressly enabled in the prior
+  example, -propconst optimization and -bram_power_opt are implicitly
+  disabled.
+
+  The following example directs the opt_design command to use various
+  algorithms to achieve potentially better results:
+
+    opt_design -directive Explore 
+    
+
+  The following example directs the opt_design command to use various
+  algorithms to achieve potentially better results, while focusing on area
+  reduction:
+
+    opt_design -directive ExploreArea 
+    
+
+  This example uses the -srl_remap_modes argument with the automatic option
+  to convert FF chains into SRLs when FF utilization is greater than 20%, or
+  SRLs into FF chains when SRL utilization is over 50%:
+
+    -srl_remap_modes {{target_ff_util 20 target_lutram_util 50}}
+
+  Note: In this case, the srl_remap is only performed if either specified
+  utilization rate is exceeded, but NOT if both are exceeded.
+
+  The following example uses the -srl_remap_modes argument with the manual
+  option to convert FF chains with length greater than 5 to SRLs, and SRLs
+  with depth less than or equal to 8 to FF chains:
+
+    -srl_remap_modes {{min_depth_ffs_to_srl 5}{max_depth_srl_to_ffs 8}}
+
+See Also:
+
+   *  phys_opt_design
+   *  place_design
+   *  power_opt_design
+   *  route_design
+   *  set_power_opt
+   *  synth_design
+
+Vivado% opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only LUT_REMAP -merge_equivalent_drivers
+ERROR: [Common 17-165] Too many positional options when parsing '-merge_equivalent_drivers', please type 'opt_design -help' for usage info.
+
+Vivado% opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only LUT_REMAP
+ERROR: [Common 17-165] Too many positional options when parsing 'LUT_REMAP', please type 'opt_design -help' for usage info.
+
+Vivado% opt_design -directive ExploreArea -sweep -resynth_area -LUT_REMAP_opt_only
+ERROR: [Common 17-170] Unknown option '-LUT_REMAP_opt_only', please type 'opt_design -help' for usage info.
+
+Vivado% opt_design -help
+opt_design
+
+Description: 
+Optimize the current netlist. This will perform the retarget, propconst, sweep and bram_power_opt optimizations by default.
+
+Syntax: 
+opt_design  [-retarget] [-propconst] [-sweep] [-bram_power_opt] [-remap]
+            [-aggressive_remap] [-resynth_area] [-resynth_seq_area]
+            [-directive <arg>] [-muxf_remap] [-hier_fanout_limit <arg>]
+            [-bufg_opt] [-shift_register_opt] [-dsp_register_opt]
+            [-srl_remap_modes <arg>] [-control_set_merge]
+            [-merge_equivalent_drivers] [-carry_remap] [-debug_log]
+            [-property_opt_only] [-quiet] [-verbose]
+
+Usage: 
+  Name                         Description
+  ----------------------------------------
+  [-retarget]                  Retarget
+  [-propconst]                 Propagate constants across leaf-level 
+                               instances
+  [-sweep]                     Remove unconnected leaf-level instances
+  [-bram_power_opt]            Perform Block RAM power optimizations
+  [-remap]                     Remap logic optimally in LUTs
+  [-aggressive_remap]          High effort remap optimization
+  [-resynth_area]              Resynthesis
+  [-resynth_seq_area]          Resynthesis (with Sequential optimizations)
+  [-directive]                 Mode of behavior (directive) for this command.
+                               Please refer to Arguments section of this help
+                               for values for this option
+                               Default: Default
+  [-muxf_remap]                Optimize all MuxFx cells to LUT3
+  [-hier_fanout_limit]         Replicate by module with threshold N
+  [-bufg_opt]                  Insert, Merge and Split BUFGs
+  [-shift_register_opt]        Pull register stage from shift register
+  [-dsp_register_opt]          Push/Pull Registers out of a DSP
+  [-srl_remap_modes]           remap shift registers to flops or flops to 
+                               shift registers
+  [-control_set_merge]         Merge all equivalent control set drivers to a 
+                               single driver
+  [-merge_equivalent_drivers]  Merge all LUT,Flop equivalent driver 
+                               replications
+  [-carry_remap]               reamp carries into luts
+  [-debug_log]                 show debug message
+  [-property_opt_only]         Do targeted optimizations on tagged cells
+  [-quiet]                     Ignore command errors
+  [-verbose]                   Suspend message limits during command 
+                               execution
+
+Categories: 
+Tools
+
+Description:
+
+  Optimizes a design netlist for the target part. Optimization can provide
+  improvements to synthesized netlists from third-party tools, or for
+  netlists that may not have been optimized during synthesis.
+
+  Run this command after synthesis but prior to implementation to optimize
+  the design and simplify the netlist before placing and routing the design.
+  Assign the DONT_TOUCH property to prevent the optimization of individual
+  cells.
+
+  Note: To see what actions opt_design is taking in optimizing your design,
+  you can use the -verbose option to get a more detailed transcript of the
+  process. This can help you in understanding and debugging some of the
+  changes made to your design.
+
+  The opt_design command performs the following optimizations by default:
+
+   *  Retarget
+
+   *  Constant Propagation
+
+   *  Sweep
+
+   *  Global Buffer (BUFG) optimizations
+
+   *  DSP Register optimizations
+
+   *  Shift-Register Logic optimizations
+
+   *  Block RAM Power optimizations
+
+   *  Implement MIG cores
+
+   *  Implement Debug cores
+
+  Note: Using command-line options for specific optimizations results in
+  opt_design performing only the specified optimizations and disabling all
+  others, even the ones that are usually performed by default.
+
+  To perform LUT Remapping, you must specify -remap.
+
+  To perform area-based re-synthesis, you must specify -resynth_area, or
+  -directive ExploreArea.
+
+  To perform sequential area-based re-synthesis, you must specify
+  -resynth_seq_area, or -directive ExploreSequentialArea.
+
+Arguments:
+
+  -retarget - (Optional) Retarget one type of block to another when
+  retargetting the design from one device family to another. For example,
+  retarget instantiated MUXCY or XORCY components into a CARRY4 block; or
+  retarget DCM to MMCM. The retarget optimization also absorbs inverters into
+  downstream logic where possible.
+
+  Note: The -retarget argument is optional, as are the other optimizations.
+  However this optimization is run by default unless explicitly overridden by
+  another optimization.
+
+  -propconst - (Optional) Propagate constant inputs through the circuit,
+  resulting in a simplified netlist. Propagation of constants can eliminate
+  redundant combinational logic from the netlist.
+
+  -sweep - (Optional) Remove unnecessary logic, removing loadless cells and
+  nets.
+
+  -bram_power_opt - (Optional) Enables power optimization on Block RAM cells.
+  Changes the WRITE_MODE on unread ports of true dual-port RAMs to NO_CHANGE,
+  and applies intelligent clock gating to Block RAM outputs.
+
+  Note: Specific BRAM cells can be excluded from this optimization using the
+  set_power_opt command.
+
+  -remap - (Optional) Remap the design to combine multiple LUTs into a single
+  LUT to reduce the depth of the logic.
+
+  -aggressive_remap - (Optional) Similar to the -remap option to reduce LUT
+  logic depth but more exhaustive. This may reduce more LUT levels at the
+  expense of longer optimization runtime.
+
+  -resynth_area - (Optional) Perform re-synthesis in area mode to reduce the
+  number of LUTs.
+
+  -resynth_seq_area - (Optional) Perform re-synthesis to reduce both
+  combinational and sequential logic. Performs a superset of the optimization
+  provided by -resynth_area.
+
+  -directive <arg> - (Optional) Direct the mode of optimization with specific
+  design objectives. Only one directive can be specified for a single
+  opt_design command, and values are case-sensitive. Supported values
+  include:
+
+   *  Explore - Run multiple passes of optimization to improve results.
+
+   *  ExploreArea - Run multiple passes of optimization, with an emphasis on
+      reducing area.
+
+   *  ExploreWithRemap - Similar to ExploreArea but adds the remap
+      optimization to compress logic levels.
+
+   *  ExploreSequentialArea - Run multiple passes of optimization, with an
+      emphasis on reducing registers and related combinational logic.
+
+   *  AddRemap - Run the default optimization, and include LUT remapping to
+      reduce logic levels.
+
+   *  NoBramPowerOpt - Runs opt_design without the default BRAM power
+      optimization.
+
+   *  RuntimeOptimized - Run the fewest iterations, trading optimization
+      results for faster runtime.
+
+   *  Default - Run the default optimization.
+
+  Refer to the Vivado Design Suite User Guide: Implementation (UG904) for
+  more information on the effects of each directive.
+
+  Note: The -directive option controls the overall optimization strategy, and
+  is not compatible with any specific optimization options. It can only be
+  used with -debug_log, -quiet and -verbose.
+
+  -muxf_remap - (Optional) Convert MUXFs to LUT3s opportunistically when it
+  can potentially improve route-ability of the design without affecting
+  timing.
+
+  -hier_fanout_limit <arg> - (Optional) Net drivers with fanout greater than
+  the specified limit (<arg>) will be replicated according to the logical
+  hierarchy. For each hierarchical instance driven by the high-fanout net, if
+  the fanout within the hierarchy is greater than the specified limit, then
+  the net within the hierarchy is driven by a replica of the driver of the
+  high-fanout net.
+
+  -bufg_opt - (Optional) Perform various optimizations related to global
+  buffers (BUFG/BUFGCE): Insert a buffer on unbuffered clock nets (fanout >
+  30). Insert BUFGs on high fanout nets where the control set pin count on
+  the net exceeds the tool threshold. Perform load-splitting when a
+  high-fanout net drives both combinational and sequential logic: the
+  combinational portion bypasses the BUFG because the added delay is too
+  large.
+
+  Note: The phys_opt_design command can be used to optimize the combinational
+  portion, while the sequential portion can be driven by BUFG.
+
+  -shift_register_opt - (Optional) For high-fanout nets originating from an
+  SRL, add output register pipeline stages to improve timing prior to the
+  high-fanout net replication. This optimization is performed as part of the
+  default optimization.
+
+  -dsp_register_opt - (Optional) Pull registers out of a DSP, or push
+  registers into a DSP, to improve timing and resource utilization as needed.
+  This optimization is performed as part of the default optimization.
+
+  -srl_remap_modes <args> - (Optional) Many designs have timing closure
+  issues related to deep SRLs, and long register chains. This option provides
+  both an automatic rule to trigger remapping between FF chains and SRLs, and
+  also a manual rule to specify when to convert a FF chain to an SRL, or an
+  SRL to a FF chain. Automatic remapping starts with the longest FF chains
+  and converts those to SRLs when needed to reduce FF utilization, and takes
+  the shallowest SRLs and converts those to FF chains when needed to reduce
+  LUT utilization. Manual remapping takes FF chains in excess of specified
+  lengths and remaps them to SRLs, and takes SRLs with specified depths and
+  remaps them to FF chains. The automatic and manual modes cannot both be
+  used in the same opt_design command pass. The following shows the syntax
+  for the automatic and manual rules:
+
+   *  Automatic:
+
+       -  -srl_remap_modes {{target_ff_util <util> target_lutram_util
+          <util>}}: Where <util> is a number from 0 to 100 expressed as a
+          percentage of utilization. When either FF or LUTs exceed the
+          specified utilization, the tool remaps as needed. When both
+          utilization rates are exceeded neither is remapped.
+
+   *  Manual:
+
+       -  -srl_remap_modes {{min_depth_ffs_to_srl <val>}{max_depth_srl_to_ffs
+          <val>}}: Where <val> specifies the depth of an SRL or length of a
+          FF chain. When a FF chain is greater than the specified min value,
+          the chain is remapped to an SRL with the required depth. If an SRL
+          has depth less than or equal to the specified max value, the SRL is
+          remapped to a FF chain.
+
+  -control_set_merge - (Optional) Reduce the drivers of logically-equivalent
+  control signals to a single driver. This is like a reverse fanout
+  replication, and results in nets that are better suited for module-based
+  replication.
+
+  -merge_equivalent_drivers - (Optional) This option merges equivalent
+  drivers on both control signals and non-control signals, to reduce logic in
+  the design.
+
+  -carry_remap - (Optional) Remap carry signals into LUTs.
+
+  -debug_log - (Optional) Generate log file for debugging purposes.
+
+  -property_opt_only - (Optional) Indicates that the opt_design command
+  should be driven only by properties on objects in the design, and not by
+  the options defined as part of the command syntax. Refer to the Vivado
+  Design Suite Properties Reference Manual (UG912) for more information on
+  specific properties. The following properties trigger property-only
+  optimizations: CARRY_REMAP, CONTROL_SET_REMAP, EQUIVALENT_DRIVER_OPT,
+  LUT_REMAP, MUXF_REMAP, REG_TO_SRL, SRL_STAGES_TO_REG_INPUT,
+  SRL_STAGES_TO_REG_OUTPUT, SRL_TO_REG.
+
+  Note: When -property_opt_only is specified, the tool will return an error
+  if additional optimizations have been specified in the opt_design command.
+
+  -quiet - (Optional) Execute the command quietly, returning no messages from
+  the command. The command also returns TCL_OK regardless of any errors
+  encountered during execution.
+
+  Note: Any errors encountered on the command-line, while launching the
+  command, will be returned. Only errors occurring inside the command will be
+  trapped.
+
+  -verbose - (Optional) Temporarily override any message limits and return
+  all messages from this command. This option displays detailed information
+  about the logic that is affected by each optimization.
+
+Examples:
+
+  The following example performs all four default optimizations: retarget,
+  constant propagation, sweep, and BRAM power optimization. The command
+  returns detailed results with the -verbose switch:
+
+    opt_design -verbose
+
+  This example excludes specific BRAM cells from power optimization using the
+  set_power_opt command, and then runs opt_design with the four default
+  optimizations:
+
+    
+    set_power_opt -exclude_cells [get_cells \  
+       -filter {PRIMITIVE_TYPE =~ BMEM.*.*} \  
+       -of_objects [get_pins -leaf -filter {DIRECTION == IN} \  
+       -of_objects [get_nets -of_objects [get_pins clock/bufgctrl_clk_mld/O]]]]  
+    opt_design 
+    
+
+  The following example performs the sweep and retarget optimizations:
+
+    
+    opt_design -sweep -retarget 
+    
+
+  Note: Because -sweep and -retarget are expressly enabled in the prior
+  example, -propconst optimization and -bram_power_opt are implicitly
+  disabled.
+
+  The following example directs the opt_design command to use various
+  algorithms to achieve potentially better results:
+
+    opt_design -directive Explore 
+    
+
+  The following example directs the opt_design command to use various
+  algorithms to achieve potentially better results, while focusing on area
+  reduction:
+
+    opt_design -directive ExploreArea 
+    
+
+  This example uses the -srl_remap_modes argument with the automatic option
+  to convert FF chains into SRLs when FF utilization is greater than 20%, or
+  SRLs into FF chains when SRL utilization is over 50%:
+
+    -srl_remap_modes {{target_ff_util 20 target_lutram_util 50}}
+
+  Note: In this case, the srl_remap is only performed if either specified
+  utilization rate is exceeded, but NOT if both are exceeded.
+
+  The following example uses the -srl_remap_modes argument with the manual
+  option to convert FF chains with length greater than 5 to SRLs, and SRLs
+  with depth less than or equal to 8 to FF chains:
+
+    -srl_remap_modes {{min_depth_ffs_to_srl 5}{max_depth_srl_to_ffs 8}}
+
+See Also:
+
+   *  phys_opt_design
+   *  place_design
+   *  power_opt_design
+   *  route_design
+   *  set_power_opt
+   *  synth_design
+
+Vivado% opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only
+Command: opt_design -directive ExploreArea -sweep -resynth_area -property_opt_only
+ERROR: [Vivado_Tcl 4-1213] Cannot specify -directive when -rqs_opts is specified
+ERROR: [Vivado_Tcl 4-1213] Cannot specify -sweep when -rqs_opts is specified
+ERROR: [Vivado_Tcl 4-1213] Cannot specify -resynth_area when -rqs_opts is specified
+0 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered.
+opt_design failed
+ERROR: [Common 17-69] Command failed: Cannot specify additional options with '-property_opt_only'.
+
+Vivado% opt_design -directive ExploreArea -property_opt_only
+Command: opt_design -directive ExploreArea -property_opt_only
+ERROR: [Vivado_Tcl 4-1213] Cannot specify -directive when -rqs_opts is specified
+0 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered.
+opt_design failed
+ERROR: [Common 17-69] Command failed: Cannot specify additional options with '-property_opt_only'.
+
+Vivado% set_property LUT_REMAP 1 [get_cells ../Sources/* -filter {ref_name =~ LUT*}]
+WARNING: [Vivado 12-180] No cells matched '../Sources/*'.
+ERROR: [Common 17-55] 'set_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+
+Vivado% set_property LUT_REMAP 1
+ERROR: [Common 17-163] Missing value for option 'objects', please type 'set_property -help' for usage info.
+
+Vivado% set_property LUT_REMAP 1 [divisor]
+invalid command name "divisor"
+Vivado% set_property LUT_REMAP 1 [divider]
+invalid command name "divider"
+Vivado% set_property LUT_REMAP 1 [get_cells divider]
+WARNING: [Vivado 12-180] No cells matched 'divider'.
+ERROR: [Common 17-55] 'set_property' expects at least one object.
+Resolution: If [get_<value>] was used to populate the object, check to make sure this command returns at least one valid object.
+
+Vivado% get_cells divider
+WARNING: [Vivado 12-180] No cells matched 'divider'.
+Vivado% gui
+invalid command name "gui"
+Vivado% open_gui
+invalid command name "open_gui"
+Vivado% run_gui
+invalid command name "run_gui"
+Vivado% help *gui*
+
+Topic                           Description
+create_gui_custom_command       Create a custom command in the GUI
+create_gui_custom_command_arg   Create a custom command argument for a custom 
+                                command in the GUI
+get_gui_custom_command_args     Get custom command arguments
+get_gui_custom_commands         Get custom commands
+remove_gui_custom_command_args  Remove one or more custom command arguments
+remove_gui_custom_commands      Remove one or more custom commands
+start_gui                       Start GUI
+stop_gui                        Close GUI
+
+For help on an individual topic, type 'help <topic>'. For example:
+% help create_project
+
+Vivado% start_gui
+refresh_design
+ERROR: [Common 17-69] Command failed: Cannot refresh synth_design designs after netlist changes. Please run synth_design to refresh the design.
+synth_design
+Command: synth_design
+Starting synth_design
+Using part: xc7a35tcpg236-2L
+Top: divider
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 2772 
+WARNING: [Synth 8-2490] overwriting previous definition of module divider [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/divider.v:13]
+ERROR: [Synth 8-2715] syntax error near end [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v:31]
+Failed to read verilog 'C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v'
+INFO: [Common 17-83] Releasing license: Synthesis
+2 Infos, 1 Warnings, 0 Critical Warnings and 2 Errors encountered.
+synth_design failed
+ERROR: [Common 17-69] Command failed: Synthesis failed - please see the console or run log file for details
+read_verilog C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v
+WARNING: [filemgmt 56-12] File 'C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v' cannot be added to the project because it already exists in the project, skipping this file
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 11 21:06:24 2019...

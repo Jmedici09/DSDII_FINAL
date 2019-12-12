@@ -21,22 +21,15 @@ module lrShiftSFR
 	);
 	
 
-reg [SIZE-1:0] next_Q;
-
 	//register
 	always @( posedge clk )
 		if ( ld == 1'b1 )
 			Q <= D;
-		else
-			Q <= next_Q;
-			
-	// Next Value
-	always @( * )
-		if (left == 1'b1)
-			next_Q <= (Q << 1);
+		else if (left == 1'b1)
+			Q <= {Q[SIZE-2:0], 1'b0};
 		else if (right == 1'b1) 
-			next_Q <= (Q >> 1);
+			Q <= {1'b0, Q[SIZE-1:1]};
 		else
-			next_Q <= Q;
+			Q <= Q;
 			
 endmodule

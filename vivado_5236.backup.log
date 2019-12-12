@@ -1,0 +1,19 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Wed Dec 11 18:34:40 2019
+# Process ID: 5236
+# Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL
+# Command line: vivado.exe -mode batch -source Tcl\synth.tcl
+# Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/vivado.log
+# Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL\vivado.jou
+#-----------------------------------------------------------
+source {Tcl\synth.tcl}
+# set sourceInputDir "../src/Sources"
+# set constraintsInputDir "../src/Constraints"
+# set outputDir "./Reports"
+# file mkdir $outputDir
+# read_verilog $sourceInputDir/divider.v
+ERROR: [Common 17-69] Command failed: File 'C:/Users/Walter/Documents/GitHub/src/Sources/divider.v' does not exist
+INFO: [Common 17-206] Exiting Vivado at Wed Dec 11 18:35:54 2019...

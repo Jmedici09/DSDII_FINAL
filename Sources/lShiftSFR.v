@@ -19,9 +19,6 @@ module lShiftSFR
 	input incr,
 	output reg [SIZE - 1:0] Q
 	);
-	
-
-reg [SIZE-1:0] next_Q;
 
 	//register
 	always @( posedge clk )
@@ -31,7 +28,7 @@ reg [SIZE-1:0] next_Q;
 			if (incr == 1'b1)
 				Q = Q + 1;
 			if (left == 1'b1)
-				Q = Q << 1;
+				Q = {Q[SIZE-2:0], 1'b0};
 		end
 			
 endmodule

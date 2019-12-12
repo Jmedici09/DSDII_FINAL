@@ -14,7 +14,6 @@
 
 `define SWIDTH 3
 module control
-	#(parameter SIZE=8)
 	(	//Inputs
 	input clk, reset,
 	input start,
@@ -98,16 +97,7 @@ reg [`SWIDTH-1:0] state, next_state;
 					next_state = SHIFT_RIGHT;
 					right = 1'b1;
 				end
-				
-				/* else
-				begin
-					next_state = SHIFT_RIGHT;
-					right = 1'b1;
-					if( dvsr_less_than_dvnd == 1'b1 )
-						sub = 1'b1;
-					else
-						sub = 1'b0;
-				end */
+
 			
 			NO_ERROR:
 				next_state = WAIT_FOR_START; 

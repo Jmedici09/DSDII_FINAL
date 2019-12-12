@@ -56,7 +56,6 @@ udCounterSFR #($clog2(SIZE)) count (
 	.clk(clk),
 	.ld(init),
 	.incr(left), .decr(right),
-	.D({$clog2(SIZE){1'b0}}), // Base count
 	.Q(cnt) // Cur count
 	);
 	
