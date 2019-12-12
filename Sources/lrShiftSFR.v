@@ -20,16 +20,15 @@ module lrShiftSFR
 	output reg [SIZE - 1:0] Q
 	);
 	
-
 	//register
-	always @( posedge clk )
-		if ( ld == 1'b1 )
-			Q <= D;
-		else if (left == 1'b1)
-			Q <= {Q[SIZE-2:0], 1'b0};
-		else if (right == 1'b1) 
-			Q <= {1'b0, Q[SIZE-1:1]};
-		else
-			Q <= Q;
-			
+	always @(posedge clk)
+	begin
+		casex({left, right, ld})
+			3'bxx1  :	Q <= D;
+			3'bx1x  :	Q <= {1'b0, Q[SIZE-1:1]};
+			3'b1xx  :	Q <= {Q[SIZE-2:0], 1'b0};
+			default :	Q <= Q;
+		endcase
+	end
+		
 endmodule

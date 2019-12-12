@@ -1,0 +1,718 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 12 11:33:21 2019
+# Process ID: 10876
+# Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl
+# Command line: vivado.exe -mode tcl -source synth.tcl
+# Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/vivado.log
+# Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl\vivado.jou
+#-----------------------------------------------------------
+source synth.tcl
+# set sourceInputDir "../Sources"
+# set constraintsInputDir "../Constraints"
+# set outputDir "../Reports"
+# file mkdir $outputDir
+# read_verilog {
+# 	../Sources/divider.v
+# 	../Sources/control.v
+# 	../Sources/datapath.v
+# 	../Sources/lrShiftSFR.v
+# 	../Sources/lShiftSFR.v
+# 	../Sources/subSFR.v
+# 	../Sources/udCounterSFR.v}
+# read_xdc $constraintsInputDir/constraints.xdc
+# set_property part xc7a35tcpg236-2L [current_project]
+# synth_design -fsm_extraction one_hot -directive AreaOptimized_high -resource_sharing on -retiming -top divider > $outputDir/synth_out_one_hot.rpt
+Command: synth_design -fsm_extraction one_hot -directive AreaOptimized_high -resource_sharing on -retiming -top divider
+Starting synth_design
+Using part: xc7a35tcpg236-2L
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
+INFO: [Device 21-403] Loading part xc7a35tcpg236-2L
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 10740 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:16 . Memory (MB): peak = 676.539 ; gain = 178.488
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'divider' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/divider.v:13]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'control' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/control.v:16]
+	Parameter WAIT_FOR_START bound to: 3'b000 
+	Parameter CHECK_DIVIDE_BY_ZERO bound to: 3'b001 
+	Parameter ERROR bound to: 3'b010 
+	Parameter SHIFT_LEFT bound to: 3'b011 
+	Parameter SHIFT_RIGHT bound to: 3'b100 
+	Parameter NO_ERROR bound to: 3'b101 
+INFO: [Synth 8-6155] done synthesizing module 'control' (1#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/control.v:16]
+INFO: [Synth 8-6157] synthesizing module 'datapath' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/datapath.v:13]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'lrShiftSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'lrShiftSFR' (2#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lrShiftSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'subSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/subSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'subSFR' (3#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/subSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'lShiftSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lShiftSFR.v:14]
+	Parameter SIZE bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'lShiftSFR' (4#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/lShiftSFR.v:14]
+INFO: [Synth 8-6157] synthesizing module 'udCounterSFR' [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:13]
+	Parameter SIZE bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'udCounterSFR' (5#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'datapath' (6#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/datapath.v:13]
+INFO: [Synth 8-6155] done synthesizing module 'divider' (7#1) [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/divider.v:13]
+WARNING: [Synth 8-3331] design datapath has unconnected port reset
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 741.223 ; gain = 243.172
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 741.223 ; gain = 243.172
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 741.223 ; gain = 243.172
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Finished Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 842.883 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.268 . Memory (MB): peak = 842.883 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:35 ; elapsed = 00:00:44 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7a35tcpg236-2L
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:36 ; elapsed = 00:00:44 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:36 ; elapsed = 00:00:45 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'control'
+INFO: [Synth 8-5818] HDL ADVISOR - The operator resource <adder> is shared. To prevent sharing consider applying a KEEP on the output of the operator [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Sources/udCounterSFR.v:24]
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+          WAIT_FOR_START |                           000001 |                              000
+    CHECK_DIVIDE_BY_ZERO |                           000010 |                              001
+              SHIFT_LEFT |                           000100 |                              011
+             SHIFT_RIGHT |                           001000 |                              100
+                NO_ERROR |                           010000 |                              101
+                   ERROR |                           100000 |                              010
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'control'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:36 ; elapsed = 00:00:46 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
+	   2 Input     32 Bit       Adders := 1     
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 3     
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   3 Input     32 Bit        Muxes := 1     
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     31 Bit        Muxes := 1     
+	   6 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 5     
+	   3 Input      2 Bit        Muxes := 1     
+	   6 Input      1 Bit        Muxes := 4     
+	   4 Input      1 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 2     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module control 
+Detailed RTL Component Info : 
++---Muxes : 
+	   6 Input      6 Bit        Muxes := 1     
+	   2 Input      6 Bit        Muxes := 5     
+	   6 Input      1 Bit        Muxes := 4     
+Module lrShiftSFR 
+Detailed RTL Component Info : 
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   4 Input     32 Bit        Muxes := 1     
+	   4 Input      1 Bit        Muxes := 1     
+Module subSFR 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   3 Input     32 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module lShiftSFR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input     32 Bit       Adders := 1     
++---Registers : 
+	               32 Bit    Registers := 1     
++---Muxes : 
+	   2 Input     32 Bit        Muxes := 3     
+	   2 Input     31 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 1     
+Module udCounterSFR 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      5 Bit       Adders := 1     
++---Registers : 
+	                5 Bit    Registers := 1     
++---Muxes : 
+	   3 Input      2 Bit        Muxes := 1     
+	   3 Input      1 Bit        Muxes := 1     
+Module datapath 
+Detailed RTL Component Info : 
++---Muxes : 
+	   2 Input      1 Bit        Muxes := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 90 (col length:60)
+BRAMs: 100 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:42 ; elapsed = 00:00:52 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:08 ; elapsed = 00:01:19 . Memory (MB): peak = 842.883 ; gain = 344.832
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:11 ; elapsed = 00:01:22 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-5816] Retiming module `divider`
+	Effective logic levels on critical path before retiming is: 6
+	Total number of crtical paths = 224
+
+	Optimizing at the module level
+	Cannot find a feasible solution:
+		Effective logic levels from D/left_right/Q_reg[0](fixed:INPUT) to D/subtract/Q_reg[16](fixed:INPUT) is: 5
+		Effective logic levels found across for latency (=1) is: 5
+	Optimizing locally to improve critical paths(may not reduce worst delay)
+
+	Effective logic levels on critical path after retiming is: 6
+	Total number of crtical paths = 224
+	Numbers of forward move = 0, and backward move = 0
+
+
+INFO: [Synth 8-5816] Retiming module `divider' done
+
+
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:12 ; elapsed = 00:01:23 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:31 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:31 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |    20|
+|3     |LUT1   |     1|
+|4     |LUT2   |    37|
+|5     |LUT3   |     3|
+|6     |LUT4   |    72|
+|7     |LUT5   |    11|
+|8     |LUT6   |    63|
+|9     |FDRE   |   106|
+|10    |FDSE   |     1|
+|11    |IBUF   |    67|
+|12    |OBUF   |    66|
++------+-------+------+
+
+Report Instance Areas: 
++------+---------------+-------------+------+
+|      |Instance       |Module       |Cells |
++------+---------------+-------------+------+
+|1     |top            |             |   448|
+|2     |  C            |control      |    81|
+|3     |  D            |datapath     |   233|
+|4     |    count      |udCounterSFR |    12|
+|5     |    left_right |lrShiftSFR   |    60|
+|6     |    left_shift |lShiftSFR    |    71|
+|7     |    subtract   |subSFR       |    86|
++------+---------------+-------------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:57 ; elapsed = 00:01:22 . Memory (MB): peak = 873.715 ; gain = 274.004
+Synthesis Optimization Complete : Time (s): cpu = 00:01:20 ; elapsed = 00:01:32 . Memory (MB): peak = 873.715 ; gain = 375.664
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 20 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+Finished Parsing XDC File [C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Constraints/constraints.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 897.469 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+30 Infos, 1 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:36 ; elapsed = 00:01:59 . Memory (MB): peak = 897.469 ; gain = 604.680
+# write_checkpoint -force $outputDir/synth_checkpoint_one_hot.dcp
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 897.469 ; gain = 0.000
+INFO: [Timing 38-480] Writing timing data to binary archive.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Reports/synth_checkpoint_one_hot.dcp' has been generated.
+# opt_design -sweep -resynth_area -aggressive_remap -merge_equivalent_drivers -debug_log > $outputDir/opt_out_one_hot.rpt
+Command: opt_design -sweep -resynth_area -aggressive_remap -merge_equivalent_drivers -debug_log
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 897.469 ; gain = 0.000
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 1 Sweep
+Phase 1 Sweep | Checksum: e246fe36
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1361.531 ; gain = 452.043
+INFO: [Opt 31-389] Phase Sweep created 1 cells and removed 0 cells
+
+Phase 2 Merging equivalent drivers
+INFO: [Opt 31-439] Instance C/FSM_onehot_state_reg[5]_lopt_replica cannot be merged with other parallel instances because it was replicated by a previous optimization in opt_design. 
+Phase 2 Merging equivalent drivers | Checksum: e246fe36
+
+Time (s): cpu = 00:00:07 ; elapsed = 00:00:12 . Memory (MB): peak = 1361.531 ; gain = 452.043
+INFO: [Opt 31-389] Phase Merging equivalent drivers created 0 cells and removed 0 cells
+
+Phase 3 Remap
+INFO: [Opt 31-528] Cannot remap pin: D/count/Q[2]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: D/count/Q[3]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[4]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[31]_i_2__1/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[31]_i_1__0/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/FSM_onehot_state[3]_i_1/O, Reason: Prevented by SOFT_HLUTNM constraint
+INFO: [Opt 31-528] Cannot remap pin: C/Q[31]_i_1/O, Reason: Prevented by SOFT_HLUTNM constraint
+Phase 3 Remap | Checksum: e246fe36
+
+Time (s): cpu = 00:00:14 ; elapsed = 00:00:20 . Memory (MB): peak = 1361.531 ; gain = 452.043
+INFO: [Opt 31-389] Phase Remap created 0 cells and removed 0 cells
+
+Phase 4 Resynthesis
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-74] Optimized 1 modules.
+INFO: [Opt 31-75] Optimized module 'lrShiftSFR'.
+INFO: [Opt 31-677] Could not push inverter D/count/Q[0]_i_1 to load D/count/Q_reg[0] because inversion is not supported on the pin D
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[2]_i_1, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_2, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_3, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_4, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_5, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_6, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_7, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_8, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/FSM_onehot_state[5]_i_9, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/Q0_carry__6_i_1, type: LUT2
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__0_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__0_i_2, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__0_i_3, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__0_i_4, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__1_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__1_i_2, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__1_i_3, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__1_i_4, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__2_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__2_i_2, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__2_i_3, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__2_i_4, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry__2_i_5, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry_i_2, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry_i_3, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: D/left_right/dvsr_less_than_dvnd0_carry_i_4, type: LUT4
+INFO: [Opt 31-431] constant propagation found 0 starting points
+INFO: [Opt 31-677] Could not push inverter D/count/Q[0]_i_1 to load D/count/Q_reg[0] because inversion is not supported on the pin D
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Resynthesis | Checksum: 82a42418
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:40 . Memory (MB): peak = 1405.770 ; gain = 496.281
+INFO: [Opt 31-389] Phase Resynthesis created 27 cells and removed 28 cells
+
+Phase 5 Post Processing Netlist
+INFO: [Opt 31-677] Could not push inverter D/count/Q[0]_i_1 to load D/count/Q_reg[0] because inversion is not supported on the pin D
+Phase 5 Post Processing Netlist | Checksum: 82a42418
+
+Time (s): cpu = 00:00:15 ; elapsed = 00:00:40 . Memory (MB): peak = 1405.770 ; gain = 496.281
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+------------------------------------------------------------------------------------------------------------------------
+|  Phase                       |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+------------------------------------------------------------------------------------------------------------------------
+|  Sweep                       |               1  |               0  |                                              0  |
+|  Merging equivalent drivers  |               0  |               0  |                                              0  |
+|  Remap                       |               0  |               0  |                                              0  |
+|  Resynthesis                 |              27  |              28  |                                              0  |
+|  Post Processing Netlist     |               0  |               0  |                                              0  |
+------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: 145977e47
+
+Time (s): cpu = 00:00:16 ; elapsed = 00:00:41 . Memory (MB): peak = 1405.770 ; gain = 496.281
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1405.770 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: 145977e47
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1405.770 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+56 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:25 ; elapsed = 00:00:50 . Memory (MB): peak = 1405.770 ; gain = 508.301
+# report_utilization -file $outputDir/synth_utilization_one_hot.rpt
+# report_timing -file $outputDir/synth_timing_johnson.rpt
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -2L, Delay Type: max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 2 CPUs
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-78] ReportTimingParams: -max_paths 1 -nworst 1 -delay_type max -sort_by slack.
+Vivado% report_utilization
+Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2019.1 (win64) Build 2552052 Fri May 24 14:49:42 MDT 2019
+| Date         : Thu Dec 12 11:36:37 2019
+| Host         : Walter_2in1 running 64-bit major release  (build 9200)
+| Command      : report_utilization
+| Design       : divider
+| Device       : 7a35tcpg236-2L
+| Design State : Synthesized
+------------------------------------------------------------------------------------
+
+Utilization Design Information
+
+Table of Contents
+-----------------
+1. Slice Logic
+1.1 Summary of Registers by Type
+2. Memory
+3. DSP
+4. IO and GT Specific
+5. Clocking
+6. Specific Feature
+7. Primitives
+8. Black Boxes
+9. Instantiated Netlists
+
+1. Slice Logic
+--------------
+
++-------------------------+------+-------+-----------+-------+
+|        Site Type        | Used | Fixed | Available | Util% |
++-------------------------+------+-------+-----------+-------+
+| Slice LUTs*             |  164 |     0 |     20800 |  0.79 |
+|   LUT as Logic          |  164 |     0 |     20800 |  0.79 |
+|   LUT as Memory         |    0 |     0 |      9600 |  0.00 |
+| Slice Registers         |  108 |     0 |     41600 |  0.26 |
+|   Register as Flip Flop |  108 |     0 |     41600 |  0.26 |
+|   Register as Latch     |    0 |     0 |     41600 |  0.00 |
+| F7 Muxes                |    0 |     0 |     16300 |  0.00 |
+| F8 Muxes                |    0 |     0 |      8150 |  0.00 |
++-------------------------+------+-------+-----------+-------+
+* Warning! The Final LUT count, after physical optimizations and full implementation, is typically lower. Run opt_design after synthesis, if not already completed, for a more realistic count.
+
+
+1.1 Summary of Registers by Type
+--------------------------------
+
++-------+--------------+-------------+--------------+
+| Total | Clock Enable | Synchronous | Asynchronous |
++-------+--------------+-------------+--------------+
+| 0     |            _ |           - |            - |
+| 0     |            _ |           - |          Set |
+| 0     |            _ |           - |        Reset |
+| 0     |            _ |         Set |            - |
+| 0     |            _ |       Reset |            - |
+| 0     |          Yes |           - |            - |
+| 0     |          Yes |           - |          Set |
+| 0     |          Yes |           - |        Reset |
+| 1     |          Yes |         Set |            - |
+| 107   |          Yes |       Reset |            - |
++-------+--------------+-------------+--------------+
+
+
+2. Memory
+---------
+
++----------------+------+-------+-----------+-------+
+|    Site Type   | Used | Fixed | Available | Util% |
++----------------+------+-------+-----------+-------+
+| Block RAM Tile |    0 |     0 |        50 |  0.00 |
+|   RAMB36/FIFO* |    0 |     0 |        50 |  0.00 |
+|   RAMB18       |    0 |     0 |       100 |  0.00 |
++----------------+------+-------+-----------+-------+
+* Note: Each Block RAM Tile only has one FIFO logic available and therefore can accommodate only one FIFO36E1 or one FIFO18E1. However, if a FIFO18E1 occupies a Block RAM Tile, that tile can still accommodate a RAMB18E1
+
+
+3. DSP
+------
+
++-----------+------+-------+-----------+-------+
+| Site Type | Used | Fixed | Available | Util% |
++-----------+------+-------+-----------+-------+
+| DSPs      |    0 |     0 |        90 |  0.00 |
++-----------+------+-------+-----------+-------+
+
+
+4. IO and GT Specific
+---------------------
+
++-----------------------------+------+-------+-----------+--------+
+|          Site Type          | Used | Fixed | Available |  Util% |
++-----------------------------+------+-------+-----------+--------+
+| Bonded IOB                  |  133 |     0 |       106 | 125.47 |
+| Bonded IPADs                |    0 |     0 |        10 |   0.00 |
+| Bonded OPADs                |    0 |     0 |         4 |   0.00 |
+| PHY_CONTROL                 |    0 |     0 |         5 |   0.00 |
+| PHASER_REF                  |    0 |     0 |         5 |   0.00 |
+| OUT_FIFO                    |    0 |     0 |        20 |   0.00 |
+| IN_FIFO                     |    0 |     0 |        20 |   0.00 |
+| IDELAYCTRL                  |    0 |     0 |         5 |   0.00 |
+| IBUFDS                      |    0 |     0 |       104 |   0.00 |
+| GTPE2_CHANNEL               |    0 |     0 |         2 |   0.00 |
+| PHASER_OUT/PHASER_OUT_PHY   |    0 |     0 |        20 |   0.00 |
+| PHASER_IN/PHASER_IN_PHY     |    0 |     0 |        20 |   0.00 |
+| IDELAYE2/IDELAYE2_FINEDELAY |    0 |     0 |       250 |   0.00 |
+| IBUFDS_GTE2                 |    0 |     0 |         2 |   0.00 |
+| ILOGIC                      |    0 |     0 |       106 |   0.00 |
+| OLOGIC                      |    0 |     0 |       106 |   0.00 |
++-----------------------------+------+-------+-----------+--------+
+
+
+5. Clocking
+-----------
+
++------------+------+-------+-----------+-------+
+|  Site Type | Used | Fixed | Available | Util% |
++------------+------+-------+-----------+-------+
+| BUFGCTRL   |    1 |     0 |        32 |  3.13 |
+| BUFIO      |    0 |     0 |        20 |  0.00 |
+| MMCME2_ADV |    0 |     0 |         5 |  0.00 |
+| PLLE2_ADV  |    0 |     0 |         5 |  0.00 |
+| BUFMRCE    |    0 |     0 |        10 |  0.00 |
+| BUFHCE     |    0 |     0 |        72 |  0.00 |
+| BUFR       |    0 |     0 |        20 |  0.00 |
++------------+------+-------+-----------+-------+
+
+
+6. Specific Feature
+-------------------
+
++-------------+------+-------+-----------+-------+
+|  Site Type  | Used | Fixed | Available | Util% |
++-------------+------+-------+-----------+-------+
+| BSCANE2     |    0 |     0 |         4 |  0.00 |
+| CAPTUREE2   |    0 |     0 |         1 |  0.00 |
+| DNA_PORT    |    0 |     0 |         1 |  0.00 |
+| EFUSE_USR   |    0 |     0 |         1 |  0.00 |
+| FRAME_ECCE2 |    0 |     0 |         1 |  0.00 |
+| ICAPE2      |    0 |     0 |         2 |  0.00 |
+| PCIE_2_1    |    0 |     0 |         1 |  0.00 |
+| STARTUPE2   |    0 |     0 |         1 |  0.00 |
+| XADC        |    0 |     0 |         1 |  0.00 |
++-------------+------+-------+-----------+-------+
+
+
+7. Primitives
+-------------
+
++----------+------+---------------------+
+| Ref Name | Used | Functional Category |
++----------+------+---------------------+
+| FDRE     |  107 |        Flop & Latch |
+| LUT4     |   68 |                 LUT |
+| LUT6     |   67 |                 LUT |
+| IBUF     |   67 |                  IO |
+| OBUF     |   66 |                  IO |
+| LUT2     |   38 |                 LUT |
+| CARRY4   |   20 |          CarryLogic |
+| LUT5     |    8 |                 LUT |
+| LUT3     |    4 |                 LUT |
+| LUT1     |    1 |                 LUT |
+| FDSE     |    1 |        Flop & Latch |
+| BUFG     |    1 |               Clock |
++----------+------+---------------------+
+
+
+8. Black Boxes
+--------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+9. Instantiated Netlists
+------------------------
+
++----------+------+
+| Ref Name | Used |
++----------+------+
+
+
+Vivado% exit
+INFO: [Common 17-206] Exiting Vivado at Thu Dec 12 12:16:03 2019...

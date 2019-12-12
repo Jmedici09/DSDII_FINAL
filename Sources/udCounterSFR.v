@@ -13,23 +13,20 @@
 module udCounterSFR
 	# (parameter SIZE = 5)
    (input clk,
-	input ld,
+	input clr,
 	input incr, decr,
 	output reg [SIZE - 1:0] Q // Cur count
 	);
 
 	//register
 	always @( posedge clk )
-		if ( ld == 1'b1 )
-			Q <= {SIZE{1'b0}};
-		else
-		begin
-			if (incr == 1'b1)
-				Q <= (Q + 1);
-			else if (decr == 1'b1) 
-				Q <= (Q - 1);
-			else
-				Q <= Q;
-		end		
+	begin
+		casex({incr, decr, clr})
+			3'bxx1	:	Q <= {SIZE{1'b0}};
+			3'b1xx	:	Q <= (Q + 1);
+			3'bx1x	:	Q <= (Q - 1);
+			default	:	Q <= Q;
+		endcase
+	end
 			
 endmodule

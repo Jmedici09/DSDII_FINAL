@@ -24,11 +24,12 @@ module subSFR
 
 	//register
 	always @( posedge clk )
-		if ( ld == 1'b1 )
-			Q <= D;
-		else if (sub == 1'b1)
-			Q <= (Q - S);
-		else
-			Q <= Q;
+	begin
+		casex({sub, ld})
+			2'bx1	:	Q <= D;
+			2'b1x	:	Q <= (Q - S);
+			default	:	Q <= Q;
+		endcase
+	end
 	
 endmodule

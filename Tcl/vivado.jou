@@ -2,11 +2,73 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Wed Dec 11 21:49:25 2019
-# Process ID: 13652
+# Start of session at: Thu Dec 12 13:07:50 2019
+# Process ID: 5652
 # Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl
-# Command line: vivado.exe -mode tcl -source synth.tcl
+# Command line: vivado.exe -mode Tcl -source synth.tcl
 # Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/vivado.log
 # Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl\vivado.jou
 #-----------------------------------------------------------
 source synth.tcl
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider -fsm_extraction gray
+report_utilization
+report_timing_summary
+read_xdc ../Constraints/constraints.xdc
+report_timing_summary
+opt_design -ExploreArea
+opt_design -directive ExploreArea
+report_utilization
+report_timing_summary
+close_project
+read_verilog ../Sources/divider.v
+read_xdc ../Constraints/constraints.xdc
+synth_design -top divider -directive AreaOptimized_high
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+read_xdc ../Constraints/constraints.xdc
+synth_design -top divider
+report_utilization
+report_timing_summary
+start_gui
+stop_gui
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+read_xdc ../Constraints/constraints.xdc
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+read_xdc ../Constraints/constraints.xdc
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization
+read_xdc ../Constraints/constraints.xdc
+report_timing_summary
+close_project
+read_verilog ../Sources/divider.v
+synth_design -top divider
+report_utilization

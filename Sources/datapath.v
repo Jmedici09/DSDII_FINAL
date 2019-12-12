@@ -20,13 +20,24 @@ module datapath
 	//Outputs
 	output [SIZE - 1:0] quotient, remainder,
 	// 	Status signals
-	output reg cnt_is_0, divisor_is_0, dvsr_less_than_dvnd, shifted_divisor_MSB
+	output cnt_is_0, divisor_is_0, dvsr_less_than_dvnd, shifted_divisor_MSB
 	);
 	
-wire [SIZE-1:0] shifted_divisor;
-wire [$clog2(SIZE)-1:0] cnt; // This should only need 5 bits to count to 32
+reg [SIZE-1:0] q, r;
+reg [SIZE-1:0] shifted_divisor;
+reg [$clog2(SIZE)-1:0] cnt; // This should only need 5 bits to count to 32
 	
+assign	shifted_divisor_MSB = shifted_divisor[SIZE-1];
+	
+assign	divisor_is_0 = (shifted_divisor == {SIZE{1'b0}}) ? 1'b1 : 1'b0;
+			
+assign		dvsr_less_than_dvnd = (shifted_divisor < r) ? 1'b1 : 1'b0;
+						
+assign		cnt_is_0 = (cnt == {$clog2(SIZE){1'b0}}) ? 1'b1 : 1'b0;
 		
+	
+	
+/*		
 lrShiftSFR #(SIZE) left_right (
 	.clk(clk),
 	.ld(init),
@@ -54,22 +65,71 @@ lShiftSFR #(SIZE) left_shift (
 	
 udCounterSFR #($clog2(SIZE)) count (
 	.clk(clk),
-	.ld(init),
+	.clr(init),
 	.incr(left), .decr(right),
 	.Q(cnt) // Cur count
 	);
+*/
+
+	//lrs register
+	always @(posedge clk)
+	begin
+		casex({left, right, init})
+			3'bxx1  :	shifted_divisor <= divisor;
+			3'bx1x  :	shifted_divisor <= {1'b0, shifted_divisor[SIZE-1:1]};
+			3'b1xx  :	shifted_divisor <= {shifted_divisor[SIZE-2:0], 1'b0};
+			default :	shifted_divisor <= shifted_divisor;
+		endcase
+	end
 	
+	//counter register
+	always @( posedge clk )
+	begin
+		casex({left, right, init})
+			3'bxx1	:	cnt <= {SIZE{1'b0}};
+			3'b1xx	:	cnt <= (cnt + 1);
+			3'bx1x	:	cnt <= (cnt - 1);
+			default	:	cnt <= cnt;
+		endcase
+	end
+	
+	//sub register
+	always @( posedge clk )
+	begin
+		casex({sub, init})
+			2'bx1	:	r <= dividend;
+			2'b1x	:	r <= (r - shifted_divisor);
+			default	:	r <= r;
+		endcase
+	end
+	
+	//lshift register
+	always @( posedge clk )
+		if ( init == 1'b1 )
+			q = {SIZE{1'b0}};
+		else begin
+			if (sub == 1'b1)
+				q = q + 1;
+			if (right == 1'b1)
+				q = {q[SIZE-2:0], 1'b0};
+		end
+		
+	assign remainder = r;
+	assign quotient = q;
+
+/*
 // Status signal calculation
 	always @(*)
 	begin
 		shifted_divisor_MSB <= shifted_divisor[SIZE-1];
 	
-		divisor_is_0 <= (shifted_divisor == SIZE-1'd0) ? 1'b1 : 1'b0;
+		divisor_is_0 <= (shifted_divisor == {SIZE{1'b0}}) ? 1'b1 : 1'b0;
 			
-		dvsr_less_than_dvnd <= (shifted_divisor < remainder) ? 1'b1 : 1'b0;
+		dvsr_less_than_dvnd <= (shifted_divisor < r) ? 1'b1 : 1'b0;
 						
 		cnt_is_0 <= (cnt == {$clog2(SIZE){1'b0}}) ? 1'b1 : 1'b0;
 		
 	end
+	*/
 	
 endmodule

@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Thu Dec 12 12:59:17 2019
+# Process ID: 11752
+# Current directory: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl
+# Command line: vivado.exe -mode Tcl -source synth.tcl
+# Log file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl/vivado.log
+# Journal file: C:/Users/Walter/Documents/GitHub/DSDII_FINAL/Tcl\vivado.jou
+#-----------------------------------------------------------
+source synth.tcl
+report_utilization
+close_project
+pwd
+cd ..
+cd Sources
+pwd
+read_verilog divider.v
+synth_design -top divider

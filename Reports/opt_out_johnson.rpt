@@ -1,0 +1,123 @@
+Command: opt_design -sweep -resynth_area -aggressive_remap -merge_equivalent_drivers -debug_log
+Attempting to get a license for feature 'Implementation' and/or device 'xc7a35t'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xc7a35t'
+Running DRC as a precondition to command opt_design
+
+Starting DRC Task
+INFO: [DRC 23-27] Running DRC with 2 threads
+INFO: [Project 1-461] DRC finished with 0 Errors
+INFO: [Project 1-462] Please refer to the DRC report (report_drc) for more information.
+
+Time (s): cpu = 00:00:03 ; elapsed = 00:00:02 . Memory (MB): peak = 890.730 ; gain = 0.000
+
+Starting Logic Optimization Task
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+
+Phase 1 Sweep
+Phase 1 Sweep | Checksum: 15930b931
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:18 . Memory (MB): peak = 1358.551 ; gain = 454.133
+INFO: [Opt 31-389] Phase Sweep created 0 cells and removed 0 cells
+
+Phase 2 Merging equivalent drivers
+Phase 2 Merging equivalent drivers | Checksum: 15930b931
+
+Time (s): cpu = 00:00:06 ; elapsed = 00:00:18 . Memory (MB): peak = 1358.551 ; gain = 454.133
+INFO: [Opt 31-389] Phase Merging equivalent drivers created 0 cells and removed 0 cells
+
+Phase 3 Remap
+INFO: [Opt 31-528] Cannot remap pin: FSM_johnson_state[1]_i_1/O, Reason: Prevented by SOFT_HLUTNM constraint
+Phase 3 Remap | Checksum: 147f2f499
+
+Time (s): cpu = 00:00:12 ; elapsed = 00:00:26 . Memory (MB): peak = 1358.551 ; gain = 454.133
+INFO: [Opt 31-389] Phase Remap created 7 cells and removed 8 cells
+
+Phase 4 Resynthesis
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Opt 31-74] Optimized 1 modules.
+INFO: [Opt 31-75] Optimized module 'divider'.
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: FSM_johnson_state[0]_i_1, type: LUT3
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: FSM_johnson_state[1]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: error_OBUF_inst_i_1, type: LUT2
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_0_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_1_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_2_LOPT_REMAP, type: LUT3
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_3_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_4_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_5_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: i_6_LOPT_REMAP, type: LUT6
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: r[31]_i_1, type: LUT3
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[0]_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[10]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[11]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[12]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[13]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[14]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[15]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[16]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[17]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[18]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[19]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[1]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[20]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[21]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[22]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[23]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[24]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[25]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[26]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[27]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[28]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[29]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[2]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[30]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[31]_i_1, type: LUT4
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[31]_i_2, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[3]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[4]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[5]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[6]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[7]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[8]_i_1, type: LUT5
+INFO: [Opt 31-400] Found a loadless cell that is a starting point to subsequent removal: shifted_divisor[9]_i_1, type: LUT5
+INFO: [Opt 31-431] constant propagation found 0 starting points
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Phase 4 Resynthesis | Checksum: 10d154abd
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:35 . Memory (MB): peak = 1400.945 ; gain = 496.527
+INFO: [Opt 31-389] Phase Resynthesis created 43 cells and removed 44 cells
+
+Phase 5 Post Processing Netlist
+Phase 5 Post Processing Netlist | Checksum: 10d154abd
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:35 . Memory (MB): peak = 1400.945 ; gain = 496.527
+INFO: [Opt 31-389] Phase Post Processing Netlist created 0 cells and removed 0 cells
+Opt_design Change Summary
+=========================
+
+
+------------------------------------------------------------------------------------------------------------------------
+|  Phase                       |  #Cells created  |  #Cells Removed  |  #Constrained objects preventing optimizations  |
+------------------------------------------------------------------------------------------------------------------------
+|  Sweep                       |               0  |               0  |                                              0  |
+|  Merging equivalent drivers  |               0  |               0  |                                              0  |
+|  Remap                       |               7  |               8  |                                              0  |
+|  Resynthesis                 |              43  |              44  |                                              0  |
+|  Post Processing Netlist     |               0  |               0  |                                              0  |
+------------------------------------------------------------------------------------------------------------------------
+
+
+Ending Logic Optimization Task | Checksum: bc85f2c4
+
+Time (s): cpu = 00:00:13 ; elapsed = 00:00:35 . Memory (MB): peak = 1400.945 ; gain = 496.527
+
+Starting Netlist Obfuscation Task
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1400.945 ; gain = 0.000
+Ending Netlist Obfuscation Task | Checksum: bc85f2c4
+
+Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1400.945 ; gain = 0.000
+INFO: [Common 17-83] Releasing license: Implementation
+62 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+opt_design completed successfully
+opt_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:43 . Memory (MB): peak = 1400.945 ; gain = 510.215
