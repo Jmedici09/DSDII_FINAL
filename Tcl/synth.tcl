@@ -11,7 +11,7 @@ set sourceInputDir "../Sources"
 set constraintsInputDir "../Constraints"
 
 # Set output directory
-set outputDir "./Reports"
+set outputDir "../Reports"
 file mkdir $outputDir
 
 # Set up design sources and constraints
