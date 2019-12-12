@@ -1,0 +1,6 @@
+*.log
+*.dmp
+*.jou
+*.rpt
+*.Xil/
+*.Xil/*
