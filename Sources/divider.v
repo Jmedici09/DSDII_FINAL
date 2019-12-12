@@ -34,11 +34,11 @@ reg init, left, right, sub;
 
 reg [SIZE-1:0] q, r;
 reg [SIZE-1:0] shifted_divisor;
-reg [$clog2(SIZE)-1:0] cnt; // This should only need 5 bits to count to 32
-	
+reg [$clog2(SIZE):0] cnt;
+
 assign	shifted_divisor_MSB = shifted_divisor[SIZE-1];
 assign	divisor_is_0 = (shifted_divisor == 0) ? 1'b1 : 1'b0;
-assign	dvsr_less_than_dvnd = (shifted_divisor < r) ? 1'b1 : 1'b0;
+assign	dvsr_less_than_dvnd = (shifted_divisor <= r) ? 1'b1 : 1'b0;
 assign	cnt_is_0 = (cnt == 0) ? 1'b1 : 1'b0;
 
 assign remainder = r;
@@ -46,42 +46,33 @@ assign quotient = q;
 
 	//lrShift register
 	always @( posedge clk )
-		if ( |{init, left, right} )
-		begin
-			if ( init == 1'b1 )
+			if ( init )
 				shifted_divisor <= divisor;
-			if (left == 1'b1)
+			else if (left )
 				shifted_divisor <= {shifted_divisor[SIZE-2:0], 1'b0};
-			if (right == 1'b1)
+			else if (right )
 				shifted_divisor <= {1'b0, shifted_divisor[SIZE-1:1]};
-		end
-		else
-			shifted_divisor <= shifted_divisor;
+			else
+				shifted_divisor <= shifted_divisor;
 			
 			
 	//udCountregister
 	always @( posedge clk )
-		if ( |{init, left, right} )
-		begin
-			if ( init == 1'b1 )
-				cnt <= 1;
-			if (left == 1'b1)
-				cnt <= (cnt + 1);
-			if (right == 1'b1)
-				cnt <= (cnt - 1);
-		end
+		if ( init == 1'b1 )
+			cnt <= 1;
+		else if (left == 1'b1)
+			cnt <= (cnt + 1);
+		else if (right == 1'b1)
+			cnt <= (cnt - 1);
 		else
 			cnt <= cnt;
 		
 	//sub register
 	always @( posedge clk )
-		if ( |{init, sub} )
-		begin
-			if ( init == 1'b1 )
-				r <= dividend;
-			if (sub == 1'b1)
-				r <= (r - shifted_divisor);
-		end
+		if ( init == 1'b1 )
+			r <= dividend;
+		else if (sub == 1'b1)
+			r <= (r - shifted_divisor);
 		else
 			r <= r;
 			

@@ -31,8 +31,8 @@ initial begin:main_testbench
 	reset_iv=1;
 	@(posedge clk) #1;
 		reset_iv=0;
-		a_iv=`TEST_WIDTH'd45234;
-		b_iv=`TEST_WIDTH'd101;
+		a_iv=`TEST_WIDTH'd1;
+		b_iv=`TEST_WIDTH'd1;
 		start_iv=1;
 	
 	@(posedge clk) #1;
