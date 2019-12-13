@@ -1,7 +1,15 @@
-#cd "C:\\Users\\James\\Documents\\College Semesters\\11 Fall 2019\\EECE 573 DSD2\\Assignments\\Final Project\\Tcl"
-# run with "vivado -mode tcl -source synth.tcl"
-# run with "vivado -mode batch -source synth.tcl"
-
+# //////////////////////////////////////////////////////////////////////////////////
+# // Company: Binghamton University
+# // Engineer: James Medici
+# //		   Walter Keyes
+# // 
+# // Create Date: 11/21/2019 12:33:44 PM
+# // Module Name: synth.tcl
+# // Project Name: Final Project
+# // Description: Synthesizes divider.v and puts reports in ../Reports
+# //
+# // NOTES: RUN FROM "/Tcl" DIRECTORY
+# //////////////////////////////////////////////////////////////////////////////////
 
 # Includes
 #source vivado_init.tcl
@@ -26,7 +34,7 @@ synth_design -top divider > $outputDir/synth_out.rpt
 
 # Write design checkpoint
 #good design to write a checkpoint after synth, implementation, and bitstream
-#write_checkpoint -force $outputDir/synth_checkpoint_one_hot.dcp
+write_checkpoint -force $outputDir/synth_checkpoint.dcp
 
 read_xdc $constraintsInputDir/constraints.xdc
 

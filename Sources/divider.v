@@ -46,14 +46,14 @@ assign quotient = q;
 
 	//lrShift register
 	always @( posedge clk )
-			if ( init )
-				shifted_divisor <= divisor;
-			else if (left )
-				shifted_divisor <= {shifted_divisor[SIZE-2:0], 1'b0};
-			else if (right )
-				shifted_divisor <= {1'b0, shifted_divisor[SIZE-1:1]};
-			else
-				shifted_divisor <= shifted_divisor;
+		if ( init )
+			shifted_divisor <= divisor;
+		else if (left )
+			shifted_divisor <= {shifted_divisor[SIZE-2:0], 1'b0};
+		else if (right )
+			shifted_divisor <= {1'b0, shifted_divisor[SIZE-1:1]};
+		else
+			shifted_divisor <= shifted_divisor;
 			
 			
 	//udCountregister
